@@ -1,4 +1,12 @@
 import { Component } from '@angular/core';
+import { MenuItem } from './core/models';
+
+/**
+ * @component AppComponent
+ * @description Componente raíz de la aplicación.
+ * Gestiona exclusivamente el menú lateral (SideMenu) y su enrutamiento.
+ * Los datos del menú están tipados con MenuItem (core/models).
+ */
 @Component({
   selector: 'app-root',
   templateUrl: 'app.component.html',
@@ -6,16 +14,18 @@ import { Component } from '@angular/core';
   standalone: false,
 })
 export class AppComponent {
+
   /**
-   * @description Application routing menu array.
-   * Modificamos este arreglo genérico para enrutar a las 3 vistas requeridas
-   * por la Evaluación 1. Se emplea Native Data-Binding.
+   * @property appPages
+   * @description Arreglo de rutas que alimenta el SideMenu via Data-Binding.
+   * Cada objeto cumple el contrato MenuItem definido en core/models.
    */
-  public appPages = [
+  public appPages: MenuItem[] = [
     { title: 'Inicio', url: '/home', icon: 'home' },
-    { title: 'Info Personal', url: '/profile', icon: 'person' },
+    { title: 'Información Personal', url: '/profile', icon: 'person' },
     { title: 'Contacto', url: '/contact', icon: 'call' },
   ];
 
-  constructor() {}
+  constructor() { }
+
 }

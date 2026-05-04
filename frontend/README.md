@@ -19,7 +19,7 @@ Este directorio contiene el **código fuente completo** de la aplicación móvil
 | Vista | Ruta | Concepto Angular Demostrado |
 |---|---|---|
 | **Inicio** | `/home` | Interpolación `{{ }}`, Interfaz TypeScript, `@for` |
-| **Info Personal** | `/profile` | Data-Binding completo, Property Binding `[ ]` |
+| **Información Personal** | `/profile` | Data-Binding completo, Property Binding `[ ]` |
 | **Contacto** | `/contact` | Two-Way Binding `[(ngModel)]`, Event Binding `(click)` |
 
 ---
@@ -51,15 +51,12 @@ frontend/
 
 ---
 
-## 🎨 Sistema de Estilos (SCSS Barrel Pattern)
+## 🎨 Sistema de Diseño (Tailwind + Global SCSS)
 
-Se implementó el patrón **SCSS Barrel** para centralizar todos los estilos:
-
-1. **`_variables.scss`** — Define todos los colores, fuentes y tamaños como variables reutilizables (Design Tokens).
-2. **`_reset.scss`** — Elimina estilos por defecto del navegador para consistencia entre plataformas.
-3. **`_typography.scss`** — Jerarquía tipográfica global (`h1`–`h6`, párrafos, clases utilitarias).
-4. **`_animations.scss`** — Documenta y centraliza el uso de **Animate.css** + keyframes personalizados.
-5. **`index.scss`** — Importa los 4 archivos anteriores en el orden correcto (variables primero).
+Se ha migrado a un sistema de diseño basado en utilidades (**Tailwind CSS**), lo que permite:
+1. **Eliminar archivos `.scss` por componente:** El diseño vive dentro del `.ts` embebido.
+2. **Estabilidad:** Versión v3.4.17 optimizada para Node.js v25.
+3. **Mantenimiento:** Configuración centralizada en `tailwind.config.js`.
 
 ### Convención de nombrado SCSS
 - Archivos parciales: `_nombre.scss` (con guión bajo = no compila solo).
