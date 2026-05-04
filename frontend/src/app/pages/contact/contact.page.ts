@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { IonicModule }        from '@ionic/angular';
-import { CommonModule }       from '@angular/common';
-import { FormsModule }        from '@angular/forms';
-import { ContactService }     from '../../core/services';
+import { IonicModule } from '@ionic/angular';
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
+import { ContactService } from '../../core/services';
 
 /**
  * @component ContactPage
@@ -18,9 +18,9 @@ import { ContactService }     from '../../core/services';
  * → ContactService: Inyección de Dependencias — el servicio es provisto por Angular
  */
 @Component({
-  selector:   'app-contact',
+  selector: 'app-contact',
   standalone: true,
-  imports:    [ IonicModule, CommonModule, FormsModule ],
+  imports: [IonicModule, CommonModule, FormsModule],
   template: `
     <ion-header [translucent]="true">
       <ion-toolbar color="primary">
@@ -82,11 +82,11 @@ import { ContactService }     from '../../core/services';
           <ion-list lines="none">
             <ion-item button detail="true">
               <ion-icon name="logo-github" slot="start"></ion-icon>
-              <ion-label>GitHub: /frederick-duran</ion-label>
+              <ion-label>GitHub: https://github.com/ragnarsson03</ion-label>
             </ion-item>
             <ion-item button detail="true">
               <ion-icon name="mail-outline" slot="start" color="danger"></ion-icon>
-              <ion-label>samirduran999&#64;gmail.com</ion-label>
+              <ion-label>samirduran1000&#64;gmail.com</ion-label>
             </ion-item>
           </ion-list>
         </ion-card-content>
@@ -98,9 +98,9 @@ import { ContactService }     from '../../core/services';
 export class ContactPage implements OnInit {
 
   // Variables del formulario enlazadas al HTML con [(ngModel)]
-  public formNombre:  string  = '';
-  public formMensaje: string  = '';
-  public enviado:     boolean = false;
+  public formNombre: string = '';
+  public formMensaje: string = '';
+  public enviado: boolean = false;
 
   /**
    * @constructor
@@ -109,9 +109,9 @@ export class ContactPage implements OnInit {
    * declaramos la dependencia y Angular se encarga del ciclo de vida.
    * Esto es la Inyección de Dependencias (DI) en acción.
    */
-  constructor(private contactService: ContactService) {}
+  constructor(private contactService: ContactService) { }
 
-  ngOnInit(): void {}
+  ngOnInit(): void { }
 
   /**
    * @method enviarMensaje
@@ -128,8 +128,8 @@ export class ContactPage implements OnInit {
     this.contactService.enviar(this.formNombre, this.formMensaje);
 
     // Mostramos confirmación y reseteamos el formulario
-    this.enviado     = true;
-    this.formNombre  = '';
+    this.enviado = true;
+    this.formNombre = '';
     this.formMensaje = '';
 
     // Ocultamos la confirmación después de 3 segundos

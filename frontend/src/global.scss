@@ -29,12 +29,6 @@
 // ─── Ionic Dark Mode (Automático según preferencias del sistema) ──────────────
 @import "@ionic/angular/css/palettes/dark.system.css";
 
-// ─── Estilos Propios del Proyecto ────────────────────────────────────────────
-// Animate.css: animaciones declarativas (fadeIn, slideInUp, etc.)
-@import "animate.css";
+// ─── Estilos Propios del Proyecto (Arquitectura Modular) ──────────────────────
+@import "styles/index";
 
-// Variables de diseño (colores, tipografía, espaciados)
-// Nota: Se usa @import aquí porque el contexto mixto de PostCSS+Sass
-// impide usar @use. Este uso es válido mientras no haya colisiones de nombres.
-@import "styles/variables";
-@import "styles/animations";

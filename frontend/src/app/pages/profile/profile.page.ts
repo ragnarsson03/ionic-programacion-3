@@ -1,19 +1,19 @@
 import { Component, OnInit } from '@angular/core';
-import { IonicModule }       from '@ionic/angular';
-import { CommonModule }      from '@angular/common';
+import { IonicModule } from '@ionic/angular';
+import { CommonModule } from '@angular/common';
 
 @Component({
-  selector:   'app-profile',
+  selector: 'app-profile',
   standalone: true,
-  imports:    [ IonicModule, CommonModule ],
+  imports: [IonicModule, CommonModule],
   template: `
     <ion-header [translucent]="true">
       <ion-toolbar color="primary">
         <ion-menu-button slot="start"></ion-menu-button>
-        <ion-title>Info Personal</ion-title>
+        <ion-title>Información Personal</ion-title>
         <!-- Logo UNETI en el Header -->
         <ion-thumbnail slot="end" class="mr-2 w-8 h-8">
-          <img src="assets/logo_uneti_fondo_negro.jpeg" class="rounded-full">
+          <img src="assets/logo_uneti_fondo_blanco.jpeg" class="rounded-full">
         </ion-thumbnail>
       </ion-toolbar>
     </ion-header>
@@ -74,12 +74,12 @@ import { CommonModule }      from '@angular/common';
   `,
 })
 export class ProfilePage implements OnInit {
-  public nombre:      string = 'Frederick Samir Durán Parra';
-  public cedula:      string = 'V-30.346.056';
-  public carrera:     string = 'Informática — Ingeniería';
+  public nombre: string = 'Frederick Samir Durán Parra';
+  public cedula: string = 'V-30.346.056';
+  public carrera: string = 'Informática — Ingeniería';
   public institucion: string = 'UNETI';
-  public githubUrl:   string = 'https://github.com/ragnarsson03';
+  public githubUrl: string = 'https://github.com/ragnarsson03';
 
-  constructor() {}
-  ngOnInit(): void {}
+  constructor() { }
+  ngOnInit(): void { }
 }

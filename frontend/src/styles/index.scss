@@ -1,17 +1,23 @@
 /**
  * @file index.scss
- * @description Punto de entrada único del sistema de estilos (SCSS Barrel).
- * Importa todos los archivos parciales en el orden correcto para evitar
- * conflictos de cascada. Solo este archivo se importa desde global.scss.
- *
- * Orden de importación:
- *  1. Variables   → Design Tokens (deben ir primero para que las demás los lean)
- *  2. Reset       → Normalización base del navegador
- *  3. Typography  → Jerarquía de fuentes
- *  4. Animations  → Configuración de Animate.css + Keyframes propios
+ * @description Punto de entrada unificado para el sistema de diseño.
+ * Implementa el patrón modular con subdirectorios (Base, Layout, Components).
  */
 
-@use 'variables'  as *;
-@use 'reset';
-@use 'typography';
+// 1. Abstracts (Variables y Funciones - No generan CSS por sí solas)
+@forward 'abstracts/variables';
+@forward 'abstracts/mixins';
+
+// 2. Base (Reajustes de navegador y fuentes)
+@use 'base/reset';
+@use 'base/typography';
+
+// 3. Layout (Estructuras de contenedores)
+@use 'layout/containers';
+
+// 4. Components (Estilos específicos de UI)
+@use 'components/cards';
+@use 'components/buttons';
+
+// 5. Global Extras
 @use 'animations';

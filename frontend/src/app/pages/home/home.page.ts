@@ -96,8 +96,10 @@ export class HomePage implements OnInit {
     { nombre: 'Ionic v8',        descripcion: 'Componentes UI para apps híbridas', icono: 'phone-portrait-outline', color: 'primary'   },
     { nombre: 'Angular v20',     descripcion: 'SPA Framework + Standalone API',    icono: 'logo-angular',           color: 'danger'    },
     { nombre: 'TypeScript 5.9',  descripcion: 'Tipado estático estricto',           icono: 'code-slash-outline',     color: 'secondary' },
-    { nombre: 'Tailwind CSS v3', descripcion: 'Utilidades de diseño sin .scss',     icono: 'color-palette-outline',  color: 'success'   },
+    { nombre: 'Tailwind CSS v3', descripcion: 'Diseño veloz con clases de utilidad', icono: 'color-palette-outline', color: 'success'   },
+    { nombre: 'Arquitectura SCSS', descripcion: 'Sistema modular híbrido con Tailwind', icono: 'layers-outline', color: 'tertiary'  },
     { nombre: 'Animate.css v4',  descripcion: 'Animaciones declarativas en HTML',   icono: 'sparkles-outline',       color: 'warning'   },
+
   ];
 
   constructor() {}
