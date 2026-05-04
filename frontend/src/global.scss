@@ -29,6 +29,15 @@
 // ─── Ionic Dark Mode (Automático según preferencias del sistema) ──────────────
 @import "@ionic/angular/css/palettes/dark.system.css";
 
+ion-content {
+  --background: #0f172a;
+  background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+}
+
+ion-toolbar {
+  --background: transparent;
+  --border-width: 0;
+}
+
 // ─── Estilos Propios del Proyecto (Arquitectura Modular) ──────────────────────
 @import "styles/index";
-
