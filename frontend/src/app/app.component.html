@@ -1,33 +1,49 @@
+<!-- Componente raíz de la aplicación. ion-app es el contenedor principal de Ionic -->
 <ion-app>
+
+  <!-- ion-split-pane: Permite mostrar el menú lateral en pantallas anchas (desktop)
+       y colapsarlo en pantallas pequeñas (móvil). contentId apunta al router-outlet principal. -->
   <ion-split-pane contentId="main-content">
+
+    <!-- Menú lateral deslizable. El parámetro type="overlay" lo superpone al contenido -->
     <ion-menu contentId="main-content" type="overlay">
       <ion-content>
-        <ion-list id="inbox-list">
-          <ion-list-header>Inbox</ion-list-header>
-          <ion-note>hi&#64;ionicframework.com</ion-note>
 
+        <!-- ion-list: Lista que contiene los ítems de navegación del menú -->
+        <ion-list id="nav-list">
+          <!-- Cabecera identificadora del menú de la aplicación -->
+          <ion-list-header>UNETI App</ion-list-header>
+          <ion-note>Evaluación 1 — Programación III</ion-note>
+
+          <!-- @for: Directiva de control de flujo de Angular 17+.
+               Itera el arreglo 'appPages' definido en AppComponent para renderizar
+               dinámicamente cada ítem del menú sin repetir código HTML. -->
           @for (p of appPages; track p; let i = $index) {
+            <!-- ion-menu-toggle cierra automáticamente el menú al navegar -->
             <ion-menu-toggle auto-hide="false">
-              <ion-item routerDirection="root" [routerLink]="[p.url]" lines="none" detail="false" routerLinkActive="selected">
-                <ion-icon aria-hidden="true" slot="start" [ios]="p.icon + '-outline'" [md]="p.icon + '-sharp'"></ion-icon>
+              <ion-item
+                routerDirection="root"
+                [routerLink]="[p.url]"
+                lines="none"
+                detail="false"
+                routerLinkActive="selected">
+                <!-- [ios] / [md]: Data Binding que adapta el ícono según la plataforma -->
+                <ion-icon aria-hidden="true" slot="start"
+                  [ios]="p.icon + '-outline'"
+                  [md]="p.icon + '-sharp'">
+                </ion-icon>
+                <!-- {{ p.title }}: Interpolación para mostrar el título del menú -->
                 <ion-label>{{ p.title }}</ion-label>
               </ion-item>
             </ion-menu-toggle>
           }
         </ion-list>
 
-        <ion-list id="labels-list">
-          <ion-list-header>Labels</ion-list-header>
-
-          @for (label of labels; track label) {
-            <ion-item lines="none">
-              <ion-icon aria-hidden="true" slot="start" ios="bookmark-outline" md="bookmark-sharp"></ion-icon>
-              <ion-label>{{ label }}</ion-label>
-            </ion-item>
-          }
-        </ion-list>
       </ion-content>
     </ion-menu>
+
+    <!-- Router Outlet: Punto dinámico donde Angular inyecta el componente de la ruta activa -->
     <ion-router-outlet id="main-content"></ion-router-outlet>
+
   </ion-split-pane>
 </ion-app>

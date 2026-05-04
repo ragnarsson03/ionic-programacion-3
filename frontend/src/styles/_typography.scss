@@ -1,0 +1,33 @@
+/**
+ * @file _typography.scss
+ * @description Estilos globales de tipografía. Define jerarquías de texto,
+ * tamaños y pesos para toda la aplicación partiendo de las variables del
+ * Design System definidas en _variables.scss.
+ */
+
+// Fuente global de la aplicación (importada de Google Fonts en index.html)
+body {
+  font-family: 'Inter', 'Segoe UI', 'Roboto', sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+h1 { font-size: 2rem;   }
+h2 { font-size: 1.6rem; }
+h3 { font-size: 1.3rem; }
+
+p {
+  margin-bottom: 1rem;
+  line-height: 1.7;
+}
+
+// Clase utilitaria para texto de subtítulo apagado
+.text-muted {
+  opacity: 0.65;
+  font-size: 0.9rem;
+}

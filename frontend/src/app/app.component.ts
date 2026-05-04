@@ -6,14 +6,16 @@ import { Component } from '@angular/core';
   standalone: false,
 })
 export class AppComponent {
+  /**
+   * @description Application routing menu array.
+   * Modificamos este arreglo genérico para enrutar a las 3 vistas requeridas
+   * por la Evaluación 1. Se emplea Native Data-Binding.
+   */
   public appPages = [
-    { title: 'Inbox', url: '/folder/inbox', icon: 'mail' },
-    { title: 'Outbox', url: '/folder/outbox', icon: 'paper-plane' },
-    { title: 'Favorites', url: '/folder/favorites', icon: 'heart' },
-    { title: 'Archived', url: '/folder/archived', icon: 'archive' },
-    { title: 'Trash', url: '/folder/trash', icon: 'trash' },
-    { title: 'Spam', url: '/folder/spam', icon: 'warning' },
+    { title: 'Inicio', url: '/home', icon: 'home' },
+    { title: 'Info Personal', url: '/profile', icon: 'person' },
+    { title: 'Contacto', url: '/contact', icon: 'call' },
   ];
-  public labels = ['Family', 'Friends', 'Notes', 'Work', 'Travel', 'Reminders'];
+
   constructor() {}
 }

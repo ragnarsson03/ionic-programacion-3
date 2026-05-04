@@ -1,13 +1,52 @@
+<!-- Página de Inicio: Primera vista que carga en la aplicación.
+     Contiene el mensaje de bienvenida al profesor y el stack tecnológico. -->
 <ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>home</ion-title>
+  <ion-toolbar color="primary">
+    <ion-menu-button slot="start"></ion-menu-button>
+    <ion-title>Inicio</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">home</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content [fullscreen]="true" class="home-content">
+
+  <!-- ─── Tarjeta de bienvenida al profesor ─────────────────────────────── -->
+  <!-- Clase 'welcome-pop': Keyframe personalizado definido en _animations.scss -->
+  <ion-card class="welcome-card welcome-pop">
+    <ion-card-header>
+      <!-- Interpolación: {{ saludo }} inyecta la cadena de texto
+           desde el controlador home.page.ts hacia la vista HTML -->
+      <ion-card-title class="welcome-title">{{ saludo }}</ion-card-title>
+      <ion-card-subtitle>Evaluación 1 — Programación III</ion-card-subtitle>
+    </ion-card-header>
+    <ion-card-content>
+      <!-- Property Binding: [innerHTML] enlaza el HTML dinámico del controlador -->
+      <p>{{ descripcion }}</p>
+    </ion-card-content>
+  </ion-card>
+
+  <!-- ─── Tarjeta de Stack Tecnológico ─────────────────────────────────── -->
+  <!-- animate__animated + animate__fadeInUp: Clases de Animate.css para
+       que la segunda tarjeta entre desde abajo con efecto de fade-in -->
+  <ion-card class="stack-card animate__animated animate__fadeInUp">
+    <ion-card-header>
+      <ion-card-title>Stack Tecnológico</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <!-- ion-list: Lista limpia para mostrar items de información -->
+      <ion-list lines="none">
+        <!-- @for: Directiva de control de flujo. Itera el arreglo 'stackItems'
+             del controlador para renderizar cada tecnología dinámicamente -->
+        @for (item of stackItems; track item.nombre) {
+          <ion-item>
+            <ion-icon [name]="item.icono" slot="start" [color]="item.color"></ion-icon>
+            <ion-label>
+              <h3>{{ item.nombre }}</h3>
+              <p>{{ item.descripcion }}</p>
+            </ion-label>
+          </ion-item>
+        }
+      </ion-list>
+    </ion-card-content>
+  </ion-card>
+
 </ion-content>

@@ -35,3 +35,12 @@
 /* @import "@ionic/angular/css/palettes/dark.always.css"; */
 /* @import "@ionic/angular/css/palettes/dark.class.css"; */
 @import "@ionic/angular/css/palettes/dark.system.css";
+
+/**
+ * Sistema de Estilos Centralizado (SCSS Barrel).
+ * Importa Reset, Tipografía, Variables y Animate.css en el orden correcto.
+ * Édita los archivos dentro de /src/styles/ para modificar el diseño global.
+ */
+@import "styles/index";
+
+
