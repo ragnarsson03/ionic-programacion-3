@@ -37,11 +37,17 @@ export class ContactService {
 
     this.mensajes.push(nuevoMensaje);
 
-    console.log('--- [ContactService] Mensaje Registrado ---');
-    console.log('De:', nuevoMensaje.nombre);
-    console.log('Mensaje:', nuevoMensaje.mensaje);
-    console.log('Fecha:', nuevoMensaje.fecha.toLocaleString());
-    console.log(`Total acumulado: ${this.mensajes.length} mensaje(s)`);
+    console.log('--- [ContactService] Enviando a WhatsApp ---');
+    console.log('Remitente:', nuevoMensaje.nombre);
+
+    // 🚀 WOW FACTOR (Sin Backend Físico):
+    // Usamos la API pública de WhatsApp para generar un enlace "Click to Chat" con 
+    // los datos del formulario inyectados dinámicamente como parámetros URL.
+    const textBase = `Hola Samir, te escribo desde la UNETI App.\n\n*👤 Remitente:* ${nombre}\n*📝 Mensaje:* ${mensaje}`;
+    const urlWa = `https://wa.me/584149083826?text=${encodeURIComponent(textBase)}`;
+    
+    // Abre WhatsApp Web o la App Móvil en una pestaña nueva con el mensaje listo.
+    window.open(urlWa, '_blank');
 
     return nuevoMensaje;
   }
