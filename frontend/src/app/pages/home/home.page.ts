@@ -1,12 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-import { IonicModule }       from '@ionic/angular';
-import { CommonModule }      from '@angular/common';
-import { StackItem }         from '../../core/models';
+import { IonicModule } from '@ionic/angular';
+import { CommonModule } from '@angular/common';
+import { StackItem } from '../../core/models';
 
 @Component({
-  selector:    'app-home',
-  standalone:  true,
-  imports:     [ IonicModule, CommonModule ],
+  selector: 'app-home',
+  standalone: true,
+  imports: [IonicModule, CommonModule],
   template: `
     <ion-header class="ion-no-border">
       <ion-toolbar class="bg-transparent px-4 pt-4">
@@ -52,17 +52,17 @@ import { StackItem }         from '../../core/models';
   `,
 })
 export class HomePage implements OnInit {
-  public saludo: string = 'Bienvenido, Frederick 👋🏻';
+  public saludo: string = 'Bienvenido Profesor Carlos Márquez 👋🏻';
   public descripcion: string = 'Estás en el búnker de Programación III. Una arquitectura modular, tipado estricto y diseño premium.';
-  
+
   public stackItems: StackItem[] = [
-    { nombre: 'Ionic v8',        descripcion: 'Componentes UI Híbridos', icono: 'phone-portrait-outline', color: 'primary'   },
-    { nombre: 'Angular v20',     descripcion: 'Standalone Architecture', icono: 'logo-angular',           color: 'danger'    },
-    { nombre: 'Tailwind CSS v3', descripcion: 'Utility-first Design',    icono: 'color-palette-outline',  color: 'secondary' },
-    { nombre: 'Dart Sass',       descripcion: 'Modular Style System',    icono: 'layers-outline',         color: 'tertiary'  },
-    { nombre: 'Animate.css',     descripcion: 'Motion Design',           icono: 'sparkles-outline',       color: 'warning'   }
+    { nombre: 'Ionic v8', descripcion: 'Componentes UI Híbridos', icono: 'phone-portrait-outline', color: 'primary' },
+    { nombre: 'Angular v20', descripcion: 'Standalone Architecture', icono: 'logo-angular', color: 'danger' },
+    { nombre: 'Tailwind CSS v3', descripcion: 'Utility-first Design', icono: 'color-palette-outline', color: 'secondary' },
+    { nombre: 'Dart Sass', descripcion: 'Modular Style System', icono: 'layers-outline', color: 'tertiary' },
+    { nombre: 'Animate.css', descripcion: 'Motion Design', icono: 'sparkles-outline', color: 'warning' }
   ];
 
-  constructor() {}
-  ngOnInit(): void {}
+  constructor() { }
+  ngOnInit(): void { }
 }

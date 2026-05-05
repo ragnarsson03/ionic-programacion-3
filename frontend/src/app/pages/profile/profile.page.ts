@@ -7,69 +7,102 @@ import { CommonModule } from '@angular/common';
   standalone: true,
   imports: [IonicModule, CommonModule],
   template: `
-    <ion-header [translucent]="true">
-      <ion-toolbar color="primary">
-        <ion-menu-button slot="start"></ion-menu-button>
-        <ion-title>Información Personal</ion-title>
+    <ion-header class="ion-no-border">
+      <ion-toolbar class="bg-transparent px-4 pt-4">
+        <ion-menu-button slot="start" class="text-white"></ion-menu-button>
+        <ion-title class="font-bold text-white tracking-tight">Perfil</ion-title>
         <!-- Logo UNETI en el Header -->
         <ion-thumbnail slot="end" class="mr-2 w-8 h-8">
-          <img src="assets/logo_uneti_fondo_blanco.jpeg" class="rounded-full">
+          <img src="assets/logo_uneti_fondo_negro.jpeg" class="rounded-full shadow-md">
         </ion-thumbnail>
       </ion-toolbar>
     </ion-header>
 
     <ion-content [fullscreen]="true">
-
-      <div class="flex flex-col items-center py-8 animate__animated animate__fadeIn">
-        <div class="w-24 h-24 rounded-full overflow-hidden border-4 border-blue-600 mb-4 shadow-xl">
-          <img src="assets/logo_uneti_fondo_blanco.jpeg" alt="UNETI" class="w-full h-full object-cover">
+      <div class="px-6 pb-12">
+        <div class="flex flex-col items-center py-8 animate__animated animate__fadeIn">
+          <div class="w-32 h-32 rounded-full overflow-hidden border-4 border-slate-700/50 mb-4 shadow-xl">
+            <img src="assets/logo_uneti_fondo_negro.jpeg" alt="UNETI" class="w-full h-full object-cover">
+          </div>
+          <h1 class="text-3xl font-extrabold text-white text-center">{{ nombre }}</h1>
+          <div class="h-1 w-16 bg-blue-500 rounded-full mt-3 mb-2 animate__animated animate__stretch"></div>
+          <p class="text-sm text-blue-400 mt-1 uppercase tracking-widest font-semibold text-center">{{ carrera }}</p>
         </div>
-        <h1 class="text-2xl font-bold">{{ nombre }}</h1>
-        <p class="text-sm opacity-60 mt-1 uppercase tracking-widest">{{ carrera }}</p>
+
+        <h2 class="text-xs uppercase tracking-widest text-blue-400 font-bold mb-6">Datos Personales & Académicos</h2>
+
+        <div class="space-y-4">
+            
+            <!-- Cédula -->
+            <div class="group flex items-center p-4 bg-slate-800/50 border border-slate-700/50 rounded-3xl backdrop-blur-md hover:bg-slate-700/50 transition-all duration-300">
+               <div class="p-3 rounded-2xl bg-slate-900 group-hover:scale-110 transition-transform">
+                  <ion-icon name="id-card-outline" class="text-2xl text-blue-400"></ion-icon>
+               </div>
+               <div class="ml-4">
+                  <h3 class="text-white font-bold text-lg">{{ cedula }}</h3>
+                  <p class="text-gray-500 text-xs uppercase tracking-wider">Cédula de Identidad</p>
+               </div>
+            </div>
+
+            <!-- WhatsApp -->
+            <a href="https://wa.me/584149083826" target="_blank" class="no-underline block">
+              <div class="group flex items-center p-4 bg-slate-800/50 border border-slate-700/50 rounded-3xl backdrop-blur-md hover:bg-slate-700/50 transition-all duration-300 border-l-4 border-l-green-500">
+                 <div class="p-3 rounded-2xl bg-green-900/30 group-hover:scale-110 transition-transform">
+                    <ion-icon name="logo-whatsapp" class="text-2xl text-green-500"></ion-icon>
+                 </div>
+                 <div class="ml-4">
+                    <h3 class="text-white font-bold text-lg">+58 414-9083826</h3>
+                    <p class="text-green-500 text-xs uppercase tracking-wider">Línea Directa</p>
+                 </div>
+                 <ion-icon name="open-outline" class="ml-auto text-gray-500"></ion-icon>
+              </div>
+            </a>
+
+            <!-- Institución con Logo Oficial -->
+            <div class="group flex items-center p-4 bg-slate-800/50 border border-slate-700/50 rounded-3xl backdrop-blur-md hover:bg-slate-700/50 transition-all duration-300">
+               <div class="w-12 h-12 rounded-2xl bg-black overflow-hidden border border-slate-700/50 group-hover:scale-110 transition-transform flex items-center justify-center">
+                  <img src="assets/logo_uneti_fondo_negro.jpeg" class="w-full h-full object-cover">
+               </div>
+               <div class="ml-4">
+                  <h3 class="text-white font-bold">{{ institucion }}</h3>
+                  <p class="text-gray-500 text-xs uppercase tracking-wider">Institución Matriz</p>
+               </div>
+            </div>
+
+            <!-- GitHub -->
+            <a [href]="githubUrl" target="_blank" class="no-underline block">
+              <div class="group flex items-center p-4 bg-slate-800/50 border border-slate-700/50 rounded-3xl backdrop-blur-md hover:bg-slate-700/50 transition-all duration-300">
+                 <div class="p-3 rounded-2xl bg-slate-900 group-hover:scale-110 transition-transform">
+                    <ion-icon name="logo-github" class="text-2xl text-white"></ion-icon>
+                 </div>
+                 <div class="ml-4">
+                    <h3 class="text-white font-bold">ragnarsson03</h3>
+                    <p class="text-blue-400 text-xs uppercase tracking-wider">Ver en GitHub</p>
+                 </div>
+                 <ion-icon name="open-outline" class="ml-auto text-gray-500"></ion-icon>
+              </div>
+            </a>
+            
+            <!-- Stack de Desarrollo (Chips UI) -->
+            <div class="group flex flex-col p-4 bg-slate-800/50 border border-slate-700/50 rounded-3xl backdrop-blur-md hover:bg-slate-700/50 transition-all duration-300">
+               <div class="flex items-center">
+                   <div class="p-3 rounded-2xl bg-slate-900 group-hover:scale-110 transition-transform">
+                      <ion-icon name="hardware-chip-outline" class="text-2xl text-blue-400"></ion-icon>
+                   </div>
+                   <div class="ml-4">
+                      <h3 class="text-white font-bold">Stack de Desarrollo</h3>
+                      <p class="text-gray-500 text-xs uppercase tracking-wider">Tecnologías Base</p>
+                   </div>
+               </div>
+               <div class="flex gap-2 mt-4 ms-2">
+                 <span class="px-3 py-1.5 bg-red-500/10 text-red-400 text-[10px] uppercase font-extrabold rounded-xl border border-red-500/20 shadow-sm shadow-red-900/20">Angular</span>
+                 <span class="px-3 py-1.5 bg-blue-500/10 text-blue-400 text-[10px] uppercase font-extrabold rounded-xl border border-blue-500/20 shadow-sm shadow-blue-900/20">Ionic</span>
+                 <span class="px-3 py-1.5 bg-teal-500/10 text-teal-400 text-[10px] uppercase font-extrabold rounded-xl border border-teal-500/20 shadow-sm shadow-teal-900/20">Tailwind</span>
+               </div>
+            </div>
+
+        </div>
       </div>
-
-      <ion-card class="m-4 rounded-3xl overflow-hidden shadow-lg border border-gray-100 animate__animated animate__slideInUp">
-        <ion-card-header class="bg-blue-50">
-          <ion-card-title class="text-blue-800">Datos Académicos</ion-card-title>
-        </ion-card-header>
-        <ion-card-content class="p-0">
-          <ion-list lines="full">
-            <ion-item>
-              <ion-icon name="id-card-outline" slot="start" color="primary"></ion-icon>
-              <ion-label>
-                <h3 class="font-semibold text-gray-500">Cédula</h3>
-                <p class="text-lg text-black">{{ cedula }}</p>
-              </ion-label>
-            </ion-item>
-
-            <ion-item>
-              <ion-icon name="school-outline" slot="start" color="secondary"></ion-icon>
-              <ion-label>
-                <h3 class="font-semibold text-gray-500">Institución</h3>
-                <p class="text-sm text-black">{{ institucion }}</p>
-              </ion-label>
-            </ion-item>
-
-            <ion-item button [href]="githubUrl" target="_blank">
-              <ion-icon name="logo-github" slot="start" color="dark"></ion-icon>
-              <ion-label>
-                <h3 class="font-semibold text-gray-500">GitHub</h3>
-                <p class="text-blue-600">github.com/ragnarsson03</p>
-              </ion-label>
-              <ion-note slot="end">Visitar</ion-note>
-            </ion-item>
-
-            <ion-item>
-              <ion-icon name="code-slash-outline" slot="start" color="success"></ion-icon>
-              <ion-label>
-                <h3 class="font-semibold text-gray-500">Stack</h3>
-                <p class="text-black italic">Angular · Ionic · Tailwind</p>
-              </ion-label>
-            </ion-item>
-          </ion-list>
-        </ion-card-content>
-      </ion-card>
-
     </ion-content>
   `,
 })
