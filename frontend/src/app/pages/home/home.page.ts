@@ -8,59 +8,64 @@ import { StackItem } from '../../core/models';
   standalone: true,
   imports: [IonicModule, CommonModule],
   template: `
-    <ion-header class="ion-no-border">
-      <ion-toolbar class="bg-transparent px-4 pt-4">
-        <ion-menu-button slot="start" class="text-white"></ion-menu-button>
-        <ion-title class="font-bold text-white tracking-tight">Dashboard</ion-title>
-      </ion-toolbar>
-    </ion-header>
-
-    <ion-content [fullscreen]="true">
-      <div class="px-6 pb-12">
-        
-        <!-- Header de Bienvenida con Gradiente -->
-        <div class="mt-8 mb-10 welcome-pop">
-           <h1 class="text-4xl font-extrabold text-white leading-tight">
-             {{ saludo }}
-           </h1>
-           <div class="h-1 w-20 bg-blue-500 rounded-full mt-4 animate__animated animate__stretch"></div>
-           <p class="text-gray-400 mt-6 text-lg leading-relaxed font-light">
-             {{ descripcion }}
-           </p>
-        </div>
-
-        <!-- Sección de Stack con tarjetas tipo Glassmorphism -->
-        <h2 class="text-xs uppercase tracking-widest text-blue-400 font-bold mb-6">Stack Tecnológico</h2>
-        
-        <div class="space-y-4">
-          @for (item of stackItems; track item.nombre) {
-            <div class="group flex items-center p-4 bg-slate-800/50 border border-slate-700/50 rounded-3xl backdrop-blur-md hover:bg-slate-700/50 transition-all duration-300 animate__animated animate__fadeInUp">
-               <div class="p-3 rounded-2xl bg-slate-900 group-hover:scale-110 transition-transform">
-                  <ion-icon [name]="item.icono" [color]="item.color" class="text-2xl"></ion-icon>
-               </div>
-               <div class="ml-4">
-                  <h3 class="text-white font-bold">{{ item.nombre }}</h3>
-                  <p class="text-gray-500 text-xs">{{ item.descripcion }}</p>
-               </div>
-               <ion-icon name="chevron-forward" class="ml-auto text-gray-700"></ion-icon>
+    <ion-content>
+      <main class="md:pl-72 pt-16 md:pt-0 pb-20 md:pb-0 min-h-screen bg-background">
+        <div class="px-4 md:px-lg max-w-7xl mx-auto w-full py-6 md:py-10 animate__animated animate__fadeIn">
+          
+          <!-- Hero Section -->
+          <section class="mb-lg">
+            <div class="relative w-full rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-shadow duration-300 min-h-[200px] md:min-h-[280px] bg-slate-900 flex flex-col justify-end p-md md:p-lg">
+              <div class="absolute inset-0 bg-gradient-to-t from-slate-900/90 to-transparent z-10"></div>
+              <!-- Imagen local como fondo si la API de google falla, o color plano -->
+              <div class="absolute inset-0 w-full h-full object-cover z-0 bg-blue-900 opacity-50"></div>
+              <div class="relative z-20 text-white">
+                <h1 class="font-headline-lg text-headline-lg mb-xs">{{ saludo }}</h1>
+                <p class="font-body-lg text-body-lg text-slate-300 max-w-2xl">{{ descripcion }}</p>
+              </div>
             </div>
-          }
-        </div>
+          </section>
 
-      </div>
+          <!-- Stack Tecnológico Section (Bento Grid) -->
+          <section>
+            <div class="flex items-center justify-between mb-md">
+              <h2 class="font-headline-md text-headline-md text-slate-900">Stack Tecnológico</h2>
+              <button class="px-4 py-2 rounded-lg bg-transparent border border-blue-600 text-blue-600 font-label-md text-label-md hover:bg-blue-50 transition-colors">
+                View All
+              </button>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-gutter">
+              @for (item of stackItems; track item.nombre) {
+                <div class="bg-white rounded-xl p-md shadow-sm border border-slate-100 hover:shadow-md hover:border-blue-200 transition-all group flex flex-col h-full relative overflow-hidden">
+                  <div class="absolute top-0 right-0 w-32 h-32 bg-blue-50 rounded-bl-full -mr-8 -mt-8 z-0 transition-transform group-hover:scale-110"></div>
+                  <div class="relative z-10 flex-1">
+                    <div class="w-12 h-12 rounded-lg bg-slate-100 flex items-center justify-center mb-sm text-blue-600">
+                      <span class="material-symbols-outlined text-[28px]">{{ item.icono }}</span>
+                    </div>
+                    <h3 class="font-title-lg text-title-lg text-slate-900 mb-xs">{{ item.nombre }}</h3>
+                    <p class="font-body-md text-body-md text-slate-500">{{ item.descripcion }}</p>
+                  </div>
+                </div>
+              }
+            </div>
+          </section>
+          
+        </div>
+      </main>
     </ion-content>
   `,
 })
 export class HomePage implements OnInit {
   public saludo: string = 'Bienvenido Profesor Carlos Márquez 👋🏻';
-  public descripcion: string = 'Estás en el búnker de Programación III. Una arquitectura modular, tipado estricto y diseño premium.';
+  public descripcion: string = 'Estás en la evaluación de Programación III. Una arquitectura modular, tipado estricto y diseño premium.';
 
+  // Actualizamos iconos a los correspondientes en Material Symbols Outlined
   public stackItems: StackItem[] = [
-    { nombre: 'Ionic v8', descripcion: 'Componentes UI Híbridos', icono: 'phone-portrait-outline', color: 'primary' },
-    { nombre: 'Angular v20', descripcion: 'Standalone Architecture', icono: 'logo-angular', color: 'danger' },
-    { nombre: 'Tailwind CSS v3', descripcion: 'Utility-first Design', icono: 'color-palette-outline', color: 'secondary' },
-    { nombre: 'Dart Sass', descripcion: 'Modular Style System', icono: 'layers-outline', color: 'tertiary' },
-    { nombre: 'Animate.css', descripcion: 'Motion Design', icono: 'sparkles-outline', color: 'warning' }
+    { nombre: 'Ionic v8', descripcion: 'Componentes UI Híbridos', icono: 'phone_iphone', color: 'primary' },
+    { nombre: 'Angular v20', descripcion: 'Standalone Architecture', icono: 'view_quilt', color: 'danger' },
+    { nombre: 'Tailwind CSS v3', descripcion: 'Utility-first Design', icono: 'waves', color: 'secondary' },
+    { nombre: 'Dart Sass', descripcion: 'Modular Style System', icono: 'style', color: 'tertiary' },
+    { nombre: 'Animate.css', descripcion: 'Motion Design', icono: 'animation', color: 'warning' }
   ];
 
   constructor() { }

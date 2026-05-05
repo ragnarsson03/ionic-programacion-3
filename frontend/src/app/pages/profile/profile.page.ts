@@ -7,102 +7,96 @@ import { CommonModule } from '@angular/common';
   standalone: true,
   imports: [IonicModule, CommonModule],
   template: `
-    <ion-header class="ion-no-border">
-      <ion-toolbar class="bg-transparent px-4 pt-4">
-        <ion-menu-button slot="start" class="text-white"></ion-menu-button>
-        <ion-title class="font-bold text-white tracking-tight">Perfil</ion-title>
-        <!-- Logo UNETI en el Header -->
-        <ion-thumbnail slot="end" class="mr-2 w-8 h-8">
-          <img src="assets/logo_uneti_fondo_negro.jpeg" class="rounded-full shadow-md">
-        </ion-thumbnail>
-      </ion-toolbar>
-    </ion-header>
-
-    <ion-content [fullscreen]="true">
-      <div class="px-6 pb-12">
-        <div class="flex flex-col items-center py-8 animate__animated animate__fadeIn">
-          <div class="w-32 h-32 rounded-full overflow-hidden border-4 border-slate-700/50 mb-4 shadow-xl">
-            <img src="assets/logo_uneti_fondo_negro.jpeg" alt="UNETI" class="w-full h-full object-cover">
+    <ion-content>
+      <main class="md:pl-72 pt-16 md:pt-0 pb-20 md:pb-0 min-h-screen bg-background">
+        <div class="px-4 md:px-lg max-w-7xl mx-auto w-full py-6 md:py-10 animate__animated animate__fadeIn">
+          
+          <!-- Header Banner -->
+          <div class="relative w-full h-48 md:h-64 mb-20">
+            <!-- Capa con overflow oculto solo para la imagen de fondo -->
+            <div class="absolute inset-0 w-full h-full rounded-xl overflow-hidden shadow-sm border border-slate-100 bg-slate-900">
+              <img src="https://lh3.googleusercontent.com/aida/ADBb0ujy80Uonk5knF-imhlSgaYZDuC_zB_oV1RbbXsxPMzLIxgreZpMVEgVlwY5rdUzPBtnZYd2vZf6dmcSeOdSXcRSx5_OvA8xujtDkdD8UWmFbFxanygdssR9P7WfjPIrRS5G-B0QTGA3TeFiB299plZLIOWC0c5n95wqOdbU68cDkcxHkb9MtJUMPJ8L46nRro0pu2MwtK4_lFV3WQpqCM7gRp9dhzLnFn5YxQ214XmUFFOkneayJBqOs9dx6A2q7EEjk0eo-zN2_As" alt="Profile Header Banner" class="w-full h-full object-cover">
+            </div>
+            
+            <!-- Avatar overlapping libre del overflow parent -->
+            <div class="absolute -bottom-16 left-6 md:left-12 flex items-end gap-6 z-10">
+              <div class="w-32 h-32 rounded-full border-4 border-white bg-surface shadow-md overflow-hidden flex items-center justify-center">
+                <img src="assets/logo_uneti_fondo_negro.jpeg" alt="Avatar" class="w-full h-full object-cover">
+              </div>
+            </div>
           </div>
-          <h1 class="text-3xl font-extrabold text-white text-center">{{ nombre }}</h1>
-          <div class="h-1 w-16 bg-blue-500 rounded-full mt-3 mb-2 animate__animated animate__stretch"></div>
-          <p class="text-sm text-blue-400 mt-1 uppercase tracking-widest font-semibold text-center">{{ carrera }}</p>
-        </div>
 
-        <h2 class="text-xs uppercase tracking-widest text-blue-400 font-bold mb-6">Datos Personales & Académicos</h2>
+          <div class="mt-4 mb-10 md:ml-48 px-2 md:px-0">
+            <h1 class="font-display text-4xl font-extrabold text-slate-900">{{ nombre }}</h1>
+            <p class="font-headline-md text-xl text-slate-500 mt-2">{{ carrera }}</p>
+          </div>
 
-        <div class="space-y-4">
+          <!-- Bento Grid Layout -->
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
             
-            <!-- Cédula -->
-            <div class="group flex items-center p-4 bg-slate-800/50 border border-slate-700/50 rounded-3xl backdrop-blur-md hover:bg-slate-700/50 transition-all duration-300">
-               <div class="p-3 rounded-2xl bg-slate-900 group-hover:scale-110 transition-transform">
-                  <ion-icon name="id-card-outline" class="text-2xl text-blue-400"></ion-icon>
-               </div>
-               <div class="ml-4">
-                  <h3 class="text-white font-bold text-lg">{{ cedula }}</h3>
-                  <p class="text-gray-500 text-xs uppercase tracking-wider">Cédula de Identidad</p>
-               </div>
-            </div>
-
-            <!-- WhatsApp -->
-            <a href="https://wa.me/584149083826" target="_blank" class="no-underline block">
-              <div class="group flex items-center p-4 bg-slate-800/50 border border-slate-700/50 rounded-3xl backdrop-blur-md hover:bg-slate-700/50 transition-all duration-300 border-l-4 border-l-green-500">
-                 <div class="p-3 rounded-2xl bg-green-900/30 group-hover:scale-110 transition-transform">
-                    <ion-icon name="logo-whatsapp" class="text-2xl text-green-500"></ion-icon>
-                 </div>
-                 <div class="ml-4">
-                    <h3 class="text-white font-bold text-lg">+58 414-9083826</h3>
-                    <p class="text-green-500 text-xs uppercase tracking-wider">Línea Directa</p>
-                 </div>
-                 <ion-icon name="open-outline" class="ml-auto text-gray-500"></ion-icon>
+            <!-- Personal & Academic Data Card -->
+            <div class="col-span-1 md:col-span-2 bg-white rounded-xl p-md shadow-sm border border-slate-100 hover:shadow-md transition-shadow">
+              <h2 class="font-title-lg text-lg font-bold text-slate-900 mb-6 flex items-center gap-2 border-b border-slate-100 pb-4">
+                <span class="material-symbols-outlined text-blue-600">badge</span> Datos Académicos
+              </h2>
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                <div class="flex flex-col">
+                  <span class="text-xs text-slate-400 uppercase tracking-wider mb-1">Cédula</span>
+                  <span class="text-lg text-slate-800 font-medium">{{ cedula }}</span>
+                </div>
+                <div class="flex flex-col">
+                  <span class="text-xs text-slate-400 uppercase tracking-wider mb-1">WhatsApp</span>
+                  <span class="text-lg text-slate-800 font-medium">+58 414-9083826</span>
+                </div>
+                <div class="flex flex-col sm:col-span-2">
+                  <span class="text-xs text-slate-400 uppercase tracking-wider mb-1">Institución</span>
+                  <div class="flex items-center gap-3 mt-1 p-3 bg-slate-50 rounded-lg border border-slate-100">
+                    <span class="material-symbols-outlined text-blue-600">account_balance</span>
+                    <span class="text-lg text-slate-800 font-medium">{{ institucion }}</span>
+                  </div>
+                </div>
               </div>
-            </a>
-
-            <!-- Institución con Logo Oficial -->
-            <div class="group flex items-center p-4 bg-slate-800/50 border border-slate-700/50 rounded-3xl backdrop-blur-md hover:bg-slate-700/50 transition-all duration-300">
-               <div class="w-12 h-12 rounded-2xl bg-black overflow-hidden border border-slate-700/50 group-hover:scale-110 transition-transform flex items-center justify-center">
-                  <img src="assets/logo_uneti_fondo_negro.jpeg" class="w-full h-full object-cover">
-               </div>
-               <div class="ml-4">
-                  <h3 class="text-white font-bold">{{ institucion }}</h3>
-                  <p class="text-gray-500 text-xs uppercase tracking-wider">Institución Matriz</p>
-               </div>
             </div>
 
-            <!-- GitHub -->
-            <a [href]="githubUrl" target="_blank" class="no-underline block">
-              <div class="group flex items-center p-4 bg-slate-800/50 border border-slate-700/50 rounded-3xl backdrop-blur-md hover:bg-slate-700/50 transition-all duration-300">
-                 <div class="p-3 rounded-2xl bg-slate-900 group-hover:scale-110 transition-transform">
-                    <ion-icon name="logo-github" class="text-2xl text-white"></ion-icon>
-                 </div>
-                 <div class="ml-4">
-                    <h3 class="text-white font-bold">ragnarsson03</h3>
-                    <p class="text-blue-400 text-xs uppercase tracking-wider">Ver en GitHub</p>
-                 </div>
-                 <ion-icon name="open-outline" class="ml-auto text-gray-500"></ion-icon>
+            <!-- Development Stack Card -->
+            <div class="col-span-1 bg-white rounded-xl p-md shadow-sm border border-slate-100 hover:shadow-md transition-shadow">
+              <h2 class="font-title-lg text-lg font-bold text-slate-900 mb-6 flex items-center gap-2 border-b border-slate-100 pb-4">
+                <span class="material-symbols-outlined text-blue-600">code</span> Stack Tecnológico
+              </h2>
+              <div class="flex flex-col gap-4">
+                <div class="text-xs text-slate-400 uppercase tracking-wider">Librerías Base</div>
+                <div class="flex flex-wrap gap-2">
+                  <span class="px-4 py-2 bg-red-50 text-red-700 text-sm font-semibold rounded-lg flex items-center gap-2 border border-red-100">
+                    <span class="material-symbols-outlined text-sm">integration_instructions</span> Angular
+                  </span>
+                  <span class="px-4 py-2 bg-blue-50 text-blue-700 text-sm font-semibold rounded-lg flex items-center gap-2 border border-blue-100">
+                    <span class="material-symbols-outlined text-sm">devices</span> Ionic
+                  </span>
+                  <span class="px-4 py-2 bg-teal-50 text-teal-700 text-sm font-semibold rounded-lg flex items-center gap-2 border border-teal-100">
+                    <span class="material-symbols-outlined text-sm">waves</span> Tailwind
+                  </span>
+                </div>
               </div>
-            </a>
-            
-            <!-- Stack de Desarrollo (Chips UI) -->
-            <div class="group flex flex-col p-4 bg-slate-800/50 border border-slate-700/50 rounded-3xl backdrop-blur-md hover:bg-slate-700/50 transition-all duration-300">
-               <div class="flex items-center">
-                   <div class="p-3 rounded-2xl bg-slate-900 group-hover:scale-110 transition-transform">
-                      <ion-icon name="hardware-chip-outline" class="text-2xl text-blue-400"></ion-icon>
-                   </div>
-                   <div class="ml-4">
-                      <h3 class="text-white font-bold">Stack de Desarrollo</h3>
-                      <p class="text-gray-500 text-xs uppercase tracking-wider">Tecnologías Base</p>
-                   </div>
-               </div>
-               <div class="flex gap-2 mt-4 ms-2">
-                 <span class="px-3 py-1.5 bg-red-500/10 text-red-400 text-[10px] uppercase font-extrabold rounded-xl border border-red-500/20 shadow-sm shadow-red-900/20">Angular</span>
-                 <span class="px-3 py-1.5 bg-blue-500/10 text-blue-400 text-[10px] uppercase font-extrabold rounded-xl border border-blue-500/20 shadow-sm shadow-blue-900/20">Ionic</span>
-                 <span class="px-3 py-1.5 bg-teal-500/10 text-teal-400 text-[10px] uppercase font-extrabold rounded-xl border border-teal-500/20 shadow-sm shadow-teal-900/20">Tailwind</span>
-               </div>
             </div>
 
+            <!-- External Links Card -->
+            <div class="col-span-1 md:col-span-3 bg-white rounded-xl p-md shadow-sm border border-slate-100 hover:shadow-md transition-shadow mt-4 md:mt-0">
+              <h2 class="font-title-lg text-lg font-bold text-slate-900 mb-6 flex items-center gap-2 border-b border-slate-100 pb-4">
+                <span class="material-symbols-outlined text-blue-600">link</span> Enlaces Externos
+              </h2>
+              <a [href]="githubUrl" target="_blank" class="inline-flex items-center gap-3 p-4 border border-slate-200 rounded-lg hover:border-blue-400 hover:bg-slate-50 transition-colors w-full sm:w-auto no-underline">
+                <span class="material-symbols-outlined text-slate-700">code</span>
+                <div class="flex flex-col">
+                  <span class="text-xs text-slate-400 font-medium">GitHub</span>
+                  <span class="text-blue-600 font-medium">ragnarsson03</span>
+                </div>
+                <span class="material-symbols-outlined text-slate-300 ml-auto sm:ml-8">arrow_forward</span>
+              </a>
+            </div>
+          </div>
+          
         </div>
-      </div>
+      </main>
     </ion-content>
   `,
 })

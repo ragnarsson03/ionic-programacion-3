@@ -21,11 +21,36 @@ export class AppComponent {
    * Cada objeto cumple el contrato MenuItem definido en core/models.
    */
   public appPages: MenuItem[] = [
-    { title: 'Inicio', url: '/home', icon: 'home' },
-    { title: 'Información Personal', url: '/profile', icon: 'person' },
-    { title: 'Contacto', url: '/contact', icon: 'call' },
+    { title: 'Dashboard', url: '/home', icon: 'dashboard' },
+    { title: 'Perfil', url: '/profile', icon: 'person' },
+    { title: 'Contact', url: '/contact', icon: 'mail' },
   ];
 
-  constructor() { }
+  public isDarkMode: boolean = false;
+
+  constructor() { 
+    // Inicializar basándose en la preferencia del sistema o localStorage
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    if (prefersDark) {
+      this.isDarkMode = true;
+      document.documentElement.classList.add('dark');
+      document.documentElement.classList.add('ion-palette-dark'); // Para componentes nativos de Ionic
+    }
+  }
+
+  /**
+   * @method toggleDarkMode
+   * @description Alterna entre modo oscuro ('luna') y modo claro.
+   */
+  public toggleDarkMode(): void {
+    this.isDarkMode = !this.isDarkMode;
+    if (this.isDarkMode) {
+      document.documentElement.classList.add('dark');
+      document.documentElement.classList.add('ion-palette-dark');
+    } else {
+      document.documentElement.classList.remove('dark');
+      document.documentElement.classList.remove('ion-palette-dark');
+    }
+  }
 
 }

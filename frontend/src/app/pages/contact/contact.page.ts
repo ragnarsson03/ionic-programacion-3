@@ -22,108 +22,109 @@ import { ContactService } from '../../core/services';
   standalone: true,
   imports: [IonicModule, CommonModule, FormsModule],
   template: `
-    <ion-header class="ion-no-border">
-      <ion-toolbar class="bg-transparent px-4 pt-4">
-        <ion-menu-button slot="start" class="text-white"></ion-menu-button>
-        <ion-title class="font-bold text-white tracking-tight">Contacto</ion-title>
-        <!-- Logo UNETI en el Header -->
-        <ion-thumbnail slot="end" class="mr-2 w-8 h-8">
-          <img src="assets/logo_uneti_fondo_negro.jpeg" class="rounded-full shadow-md">
-        </ion-thumbnail>
-      </ion-toolbar>
-    </ion-header>
-
-    <ion-content [fullscreen]="true">
-      <div class="px-6 pb-12">
-        
-        <div class="mt-8 mb-6 animate__animated animate__fadeIn">
-           <h1 class="text-3xl font-extrabold text-white leading-tight">Envíame un mensaje</h1>
-           <div class="h-1 w-16 bg-blue-500 rounded-full mt-3 mb-2"></div>
-           <p class="text-sm text-blue-400 tracking-widest font-semibold flex items-center gap-2">
-             <ion-icon name="hardware-chip-outline" class="text-lg"></ion-icon>
-             TWO-WAY BINDING & DI
-           </p>
-        </div>
-
-        <div class="space-y-6">
+    <ion-content>
+      <main class="md:pl-72 pt-16 md:pt-0 pb-20 md:pb-0 min-h-screen bg-background">
+        <div class="px-4 md:px-lg max-w-7xl mx-auto w-full py-6 md:py-10 animate__animated animate__fadeIn space-y-6">
           
-          <!-- ─── Formulario de Contacto (Glassmorphism) ──────────── -->
-          <div class="p-6 bg-slate-800/50 border border-slate-700/50 rounded-3xl backdrop-blur-md animate__animated animate__slideInUp">
-             
-            <!-- Utilizamos variables CSS para asegurar la transparencia del item en Ionic -->
-            <ion-item class="rounded-2xl mb-4" lines="none" style="--background: rgba(15, 23, 42, 0.5); --padding-start: 1rem;">
-              <ion-label position="floating" class="text-gray-400">Tu nombre</ion-label>
-              <ion-input [(ngModel)]="formNombre" type="text" class="text-white mt-2 font-medium"></ion-input>
-            </ion-item>
+          <!-- Hero Section -->
+          <section class="relative w-full h-[200px] md:h-[300px] rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-shadow bg-slate-900 border border-slate-100">
+            <div class="absolute inset-0 w-full h-full object-cover opacity-50 bg-blue-900 z-0"></div>
+            <div class="absolute inset-0 bg-gradient-to-t from-slate-900/80 to-transparent z-10 flex items-end p-md lg:p-lg">
+              <h1 class="font-display text-4xl md:text-5xl font-extrabold text-white">Envíame un mensaje</h1>
+            </div>
+          </section>
 
-            <ion-item class="rounded-2xl mb-6" lines="none" style="--background: rgba(15, 23, 42, 0.5); --padding-start: 1rem;">
-              <ion-label position="floating" class="text-gray-400">Tu mensaje</ion-label>
-              <ion-textarea [(ngModel)]="formMensaje" rows="4" class="text-white mt-2 font-medium"></ion-textarea>
-            </ion-item>
-
-            <!-- Botón personalizado con Tailwind en lugar del estándar de Ionic -->
-            <button (click)="enviarMensaje()" 
-              class="w-full flex items-center justify-center gap-2 py-4 bg-blue-600 hover:bg-blue-500 active:bg-blue-700 text-white font-bold rounded-2xl transition-all shadow-lg shadow-blue-900/50">
-              <ion-icon name="paper-plane-outline" class="text-xl"></ion-icon>
-              ENVIAR MENSAJE
-            </button>
-
-            @if (enviado) {
-              <div class="flex items-center justify-center mt-6 gap-2 animate__animated animate__fadeIn bg-green-500/10 p-3 rounded-xl border border-green-500/20">
-                <ion-icon name="checkmark-circle-outline" class="text-green-400 text-xl"></ion-icon>
-                <p class="text-green-400 text-sm font-semibold">¡Mensaje enviado con éxito!</p>
-              </div>
-            }
-          </div>
-
-          <!-- ─── Canales Alternativos ────────────────────────────── -->
-          <h2 class="text-xs uppercase tracking-widest text-blue-400 font-bold mb-4 mt-8 animate__animated animate__fadeInUp">Canales Alternativos</h2>
-
-          <div class="space-y-4 animate__animated animate__fadeInUp">
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-md items-start">
             
-            <!-- WhatsApp -->
-            <a href="https://wa.me/584149083826" target="_blank" class="no-underline block">
-              <div class="group flex items-center p-4 bg-slate-800/50 border border-slate-700/50 rounded-3xl backdrop-blur-md hover:bg-slate-700/50 transition-all duration-300 border-l-4 border-l-green-500">
-                 <div class="p-3 rounded-2xl bg-green-900/30 group-hover:scale-110 transition-transform">
-                    <ion-icon name="logo-whatsapp" class="text-2xl text-green-500"></ion-icon>
-                 </div>
-                 <div class="ml-4">
-                    <h3 class="text-white font-bold text-lg">+58 414-9083826</h3>
-                    <p class="text-green-500 text-xs uppercase tracking-wider">Línea Directa</p>
-                 </div>
-                 <ion-icon name="open-outline" class="ml-auto text-gray-500"></ion-icon>
+            <!-- Form Card (Bento Left) -->
+            <div class="lg:col-span-7 bg-white rounded-xl shadow-sm border border-slate-100 hover:shadow-md transition-shadow duration-300 p-md flex flex-col gap-md">
+              <div>
+                <h2 class="font-headline-md text-2xl font-bold text-slate-900 mb-xs flex items-center gap-2">
+                  <span class="material-symbols-outlined text-blue-600">swap_horiz</span> TWO-WAY BINDING & DI
+                </h2>
+                <p class="text-slate-500 font-medium">Conecta este formulario con el servicio para abrir la consola o WhatsApp automáticamente.</p>
               </div>
-            </a>
+              
+              <form class="flex flex-col gap-4 mt-2">
+                 <div class="flex flex-col gap-1">
+                    <label class="text-sm font-bold text-slate-700" for="name">Nombre</label>
+                    <input [(ngModel)]="formNombre" class="w-full h-12 px-4 rounded-lg border border-slate-200 focus:border-blue-500 focus:ring-1 focus:ring-blue-500 outline-none bg-slate-50 text-slate-800 transition-colors placeholder-slate-400" id="name" name="name" placeholder="Tu nombre completo" type="text"/>
+                 </div>
+                 
+                 <div class="flex flex-col gap-1 mt-2">
+                    <label class="text-sm font-bold text-slate-700" for="message">Mensaje</label>
+                    <textarea [(ngModel)]="formMensaje" class="w-full p-4 rounded-lg border border-slate-200 focus:border-blue-500 focus:ring-1 focus:ring-blue-500 outline-none bg-slate-50 text-slate-800 resize-none transition-colors placeholder-slate-400" id="message" name="message" placeholder="¿En qué te puedo ayudar?" rows="5"></textarea>
+                 </div>
+                 
+                 <button (click)="enviarMensaje()" class="mt-4 h-12 w-full sm:w-auto self-end bg-blue-600 hover:bg-blue-700 active:scale-95 text-white rounded-lg font-bold text-sm flex items-center justify-center gap-2 px-6 transition-all shadow-sm" type="button">
+                    <span class="material-symbols-outlined text-[20px]">send</span> Enviar Mensaje
+                 </button>
 
-            <a href="https://github.com/ragnarsson03" target="_blank" class="no-underline block">
-              <div class="group flex items-center p-4 bg-slate-800/50 border border-slate-700/50 rounded-3xl backdrop-blur-md hover:bg-slate-700/50 transition-all duration-300">
-                 <div class="p-3 rounded-2xl bg-slate-900 group-hover:scale-110 transition-transform">
-                    <ion-icon name="logo-github" class="text-2xl text-white"></ion-icon>
-                 </div>
-                 <div class="ml-4">
-                    <h3 class="text-white font-bold">ragnarsson03</h3>
-                    <p class="text-gray-400 text-xs uppercase tracking-wider">GitHub Oficial</p>
-                 </div>
-                 <ion-icon name="open-outline" class="ml-auto text-gray-500"></ion-icon>
-              </div>
-            </a>
+                 @if (enviado) {
+                   <div class="flex items-center justify-center mt-4 gap-2 animate__animated animate__fadeIn bg-green-50 p-3 rounded-xl border border-green-200">
+                     <span class="material-symbols-outlined text-green-600 text-xl">check_circle</span>
+                     <p class="text-green-700 text-sm font-semibold">¡La aplicación de WhatsApp debería estar abriéndose!</p>
+                   </div>
+                 }
+              </form>
+            </div>
 
-            <a href="mailto:samirduran1000@gmail.com" class="no-underline block">
-              <div class="group flex items-center p-4 bg-slate-800/50 border border-slate-700/50 rounded-3xl backdrop-blur-md hover:bg-slate-700/50 transition-all duration-300">
-                 <div class="p-3 rounded-2xl bg-slate-900 group-hover:scale-110 transition-transform">
-                    <ion-icon name="mail-outline" class="text-2xl text-red-400"></ion-icon>
-                 </div>
-                 <div class="ml-4 truncate">
-                    <h3 class="text-white font-bold text-sm">samirduran1000&#64;gmail.com</h3>
-                    <p class="text-red-400 text-xs uppercase tracking-wider">Email Directo</p>
-                 </div>
-                 <ion-icon name="chevron-forward" class="ml-auto text-gray-500"></ion-icon>
+            <!-- Alternative Channels Card (Bento Right) -->
+            <div class="lg:col-span-5 flex flex-col gap-md">
+              <div class="bg-white rounded-xl shadow-sm border border-slate-100 hover:shadow-md transition-shadow duration-300 p-md flex flex-col gap-md h-full">
+                <div>
+                  <h2 class="font-title-lg text-lg font-bold text-slate-900 mb-1">Canales Alternativos</h2>
+                  <p class="text-sm text-slate-500">Otras formas de conectarte con nosotros.</p>
+                </div>
+                
+                <div class="flex flex-col gap-4 mt-2">
+                  
+                  <!-- Phone -->
+                  <a href="https://wa.me/584149083826" target="_blank" class="flex items-center gap-4 p-3 rounded-lg bg-slate-50 hover:bg-green-50 border border-slate-100 hover:border-green-200 transition-all cursor-pointer group no-underline">
+                    <div class="w-10 h-10 rounded-full bg-slate-200 flex items-center justify-center text-slate-600 group-hover:bg-green-100 group-hover:text-green-700 transition-colors">
+                      <span class="material-symbols-outlined">call</span>
+                    </div>
+                    <div class="flex flex-col">
+                      <span class="text-[10px] font-bold text-slate-400 uppercase tracking-wider">Línea Directa</span>
+                      <span class="text-sm text-slate-800 font-bold">+58 414-9083826</span>
+                    </div>
+                  </a>
+
+                  <!-- GitHub -->
+                  <a href="https://github.com/ragnarsson03" target="_blank" class="flex items-center gap-4 p-3 rounded-lg bg-slate-50 hover:bg-slate-100 border border-slate-100 hover:border-slate-300 transition-all cursor-pointer group no-underline">
+                    <div class="w-10 h-10 rounded-full bg-slate-200 flex items-center justify-center text-slate-600 group-hover:bg-slate-300 group-hover:text-slate-800 transition-colors">
+                      <span class="material-symbols-outlined">code</span>
+                    </div>
+                    <div class="flex flex-col">
+                      <span class="text-[10px] font-bold text-slate-400 uppercase tracking-wider">GitHub Oficial</span>
+                      <span class="text-sm text-slate-800 font-bold">ragnarsson03</span>
+                    </div>
+                  </a>
+
+                  <!-- Email -->
+                  <a href="mailto:samirduran1000@gmail.com" class="flex items-center gap-4 p-3 rounded-lg bg-slate-50 hover:bg-red-50 border border-slate-100 hover:border-red-200 transition-all cursor-pointer group no-underline">
+                    <div class="w-10 h-10 rounded-full bg-slate-200 flex items-center justify-center text-slate-600 group-hover:bg-red-100 group-hover:text-red-700 transition-colors">
+                      <span class="material-symbols-outlined">alternate_email</span>
+                    </div>
+                    <div class="flex flex-col truncate">
+                      <span class="text-[10px] font-bold text-slate-400 uppercase tracking-wider">Email</span>
+                      <span class="text-sm text-slate-800 font-bold truncate">samirduran1000&#64;gmail.com</span>
+                    </div>
+                  </a>
+
+                </div>
               </div>
-            </a>
+              
+              <!-- Decorative Secondary Image -->
+              <div class="bg-slate-900 rounded-xl shadow-sm border border-slate-100 overflow-hidden h-[150px] hidden lg:block relative group">
+                <div class="absolute inset-0 w-full h-full object-cover opacity-50 bg-blue-900 group-hover:scale-105 transition-transform duration-700 z-0"></div>
+                <div class="absolute inset-0 bg-blue-600/10 mix-blend-overlay"></div>
+              </div>
+            </div>
+
           </div>
-
         </div>
-      </div>
+      </main>
     </ion-content>
   `,
 })
