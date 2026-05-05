@@ -1,4 +1,12 @@
 import { Component } from '@angular/core';
+import { MenuItem } from './core/models';
+
+/**
+ * @component AppComponent
+ * @description Componente raíz de la aplicación.
+ * Gestiona exclusivamente el menú lateral (SideMenu) y su enrutamiento.
+ * Los datos del menú están tipados con MenuItem (core/models).
+ */
 @Component({
   selector: 'app-root',
   templateUrl: 'app.component.html',
@@ -6,14 +14,18 @@ import { Component } from '@angular/core';
   standalone: false,
 })
 export class AppComponent {
-  public appPages = [
-    { title: 'Inbox', url: '/folder/inbox', icon: 'mail' },
-    { title: 'Outbox', url: '/folder/outbox', icon: 'paper-plane' },
-    { title: 'Favorites', url: '/folder/favorites', icon: 'heart' },
-    { title: 'Archived', url: '/folder/archived', icon: 'archive' },
-    { title: 'Trash', url: '/folder/trash', icon: 'trash' },
-    { title: 'Spam', url: '/folder/spam', icon: 'warning' },
+
+  /**
+   * @property appPages
+   * @description Arreglo de rutas que alimenta el SideMenu via Data-Binding.
+   * Cada objeto cumple el contrato MenuItem definido en core/models.
+   */
+  public appPages: MenuItem[] = [
+    { title: 'Inicio', url: '/home', icon: 'home' },
+    { title: 'Información Personal', url: '/profile', icon: 'person' },
+    { title: 'Contacto', url: '/contact', icon: 'call' },
   ];
-  public labels = ['Family', 'Friends', 'Notes', 'Work', 'Travel', 'Reminders'];
-  constructor() {}
+
+  constructor() { }
+
 }
