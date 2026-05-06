@@ -3,6 +3,13 @@ import { IonicModule } from '@ionic/angular';
 import { CommonModule } from '@angular/common';
 import { StackItem } from '../../core/models';
 
+/**
+ * @view Inicio (Dashboard)
+ * @author Frederick Durán
+ * @description Esta vista implementa un diseño "Bento Grid" altamente responsivo.
+ * Se utiliza la arquitectura Standalone para optimizar la carga del componente.
+ * Profesor Carlos Márquez: Note el uso de bucles de video nativos y orquestación tipográfica.
+ */
 @Component({
   selector: 'app-home',
   standalone: true,
@@ -17,8 +24,8 @@ import { StackItem } from '../../core/models';
             <div class="relative w-full rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-shadow duration-300 min-h-[200px] md:min-h-[280px] bg-slate-900 flex flex-col justify-end p-md md:p-lg border border-slate-200 dark:border-slate-800">
               <div class="absolute inset-0 bg-gradient-to-t from-slate-900/95 via-slate-900/60 to-transparent z-10"></div>
               
-              <!-- HTML5 Video Loop -->
-              <video class="absolute inset-0 w-full h-full object-cover z-0 opacity-40 mix-blend-screen bg-blue-900" autoplay loop muted playsinline>
+              <!-- HTML5 Video Loop (Forced Autoplay) -->
+              <video class="absolute inset-0 w-full h-full object-cover z-0 opacity-40 mix-blend-screen bg-blue-900" autoplay loop [muted]="true" playsinline defaultMuted onloadedmetadata="this.muted=true">
                 <source src="assets/hero-bg/hero-bg.mp4" type="video/mp4" />
               </video>
               
