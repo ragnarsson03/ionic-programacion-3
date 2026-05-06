@@ -21,9 +21,9 @@ export class AppComponent {
    * Cada objeto cumple el contrato MenuItem definido en core/models.
    */
   public appPages: MenuItem[] = [
-    { title: 'Dashboard', url: '/home', icon: 'dashboard' },
-    { title: 'Perfil', url: '/profile', icon: 'person' },
-    { title: 'Contact', url: '/contact', icon: 'mail' },
+    { title: 'Inicio', url: '/home', icon: 'dashboard' },
+    { title: 'Información Personal', url: '/profile', icon: 'person' },
+    { title: 'Contacto', url: '/contact', icon: 'mail' },
   ];
 
   public isDarkMode: boolean = false;

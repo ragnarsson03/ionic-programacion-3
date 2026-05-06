@@ -21,14 +21,14 @@ import { CommonModule } from '@angular/common';
             <!-- Avatar overlapping libre del overflow parent -->
             <div class="absolute -bottom-16 left-6 md:left-12 flex items-end gap-6 z-10">
               <div class="w-32 h-32 rounded-full border-4 border-white bg-surface shadow-md overflow-hidden flex items-center justify-center">
-                <img src="assets/logo_uneti_fondo_negro.jpeg" alt="Avatar" class="w-full h-full object-cover">
+                <img src="assets/dog-dev/dog-dev.jpeg" alt="Avatar" class="w-full h-full object-cover">
               </div>
             </div>
           </div>
 
           <div class="mt-4 mb-10 md:ml-48 px-2 md:px-0">
             <h1 class="font-display text-4xl font-extrabold text-slate-900">{{ nombre }}</h1>
-            <p class="font-headline-md text-xl text-slate-500 mt-2">{{ carrera }}</p>
+            <p class="font-headline-md text-xl text-slate-500 mt-2">Desarrollador Web</p>
           </div>
 
           <!-- Bento Grid Layout -->

@@ -29,9 +29,6 @@ import { StackItem } from '../../core/models';
           <section>
             <div class="flex items-center justify-between mb-md">
               <h2 class="font-headline-md text-headline-md text-slate-900">Stack Tecnológico</h2>
-              <button class="px-4 py-2 rounded-lg bg-transparent border border-blue-600 text-blue-600 font-label-md text-label-md hover:bg-blue-50 transition-colors">
-                View All
-              </button>
             </div>
             
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-gutter">
@@ -40,7 +37,7 @@ import { StackItem } from '../../core/models';
                   <div class="absolute top-0 right-0 w-32 h-32 bg-blue-50 rounded-bl-full -mr-8 -mt-8 z-0 transition-transform group-hover:scale-110"></div>
                   <div class="relative z-10 flex-1">
                     <div class="w-12 h-12 rounded-lg bg-slate-100 flex items-center justify-center mb-sm text-blue-600">
-                      <span class="material-symbols-outlined text-[28px]">{{ item.icono }}</span>
+                      <ion-icon [name]="item.icono" class="text-[28px]"></ion-icon>
                     </div>
                     <h3 class="font-title-lg text-title-lg text-slate-900 mb-xs">{{ item.nombre }}</h3>
                     <p class="font-body-md text-body-md text-slate-500">{{ item.descripcion }}</p>
@@ -57,15 +54,15 @@ import { StackItem } from '../../core/models';
 })
 export class HomePage implements OnInit {
   public saludo: string = 'Bienvenido Profesor Carlos Márquez 👋🏻';
-  public descripcion: string = 'Estás en la evaluación de Programación III. Una arquitectura modular, tipado estricto y diseño premium.';
+  public descripcion: string = 'Soy Frederick Samir Durán Parra. Aquí presento mis proyectos, stack tecnológico y medios de contacto.';
 
-  // Actualizamos iconos a los correspondientes en Material Symbols Outlined
+  // Actualizamos a IonIcons (los logos oficiales)
   public stackItems: StackItem[] = [
-    { nombre: 'Ionic v8', descripcion: 'Componentes UI Híbridos', icono: 'phone_iphone', color: 'primary' },
-    { nombre: 'Angular v20', descripcion: 'Standalone Architecture', icono: 'view_quilt', color: 'danger' },
-    { nombre: 'Tailwind CSS v3', descripcion: 'Utility-first Design', icono: 'waves', color: 'secondary' },
-    { nombre: 'Dart Sass', descripcion: 'Modular Style System', icono: 'style', color: 'tertiary' },
-    { nombre: 'Animate.css', descripcion: 'Motion Design', icono: 'animation', color: 'warning' }
+    { nombre: 'Ionic v8', descripcion: 'Componentes UI Híbridos', icono: 'logo-ionic', color: 'primary' },
+    { nombre: 'Angular v20', descripcion: 'Standalone Architecture', icono: 'logo-angular', color: 'danger' },
+    { nombre: 'Tailwind CSS v3', descripcion: 'Utility-first Design', icono: 'logo-css3', color: 'secondary' },
+    { nombre: 'Dart Sass', descripcion: 'Modular Style System', icono: 'logo-sass', color: 'tertiary' },
+    { nombre: 'Animate.css', descripcion: 'Motion Design', icono: 'color-wand-outline', color: 'warning' }
   ];
 
   constructor() { }

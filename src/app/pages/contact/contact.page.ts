@@ -79,14 +79,14 @@ import { ContactService } from '../../core/services';
                 
                 <div class="flex flex-col gap-4 mt-2">
                   
-                  <!-- Phone -->
-                  <a href="https://wa.me/584149083826" target="_blank" class="flex items-center gap-4 p-3 rounded-lg bg-slate-50 hover:bg-green-50 border border-slate-100 hover:border-green-200 transition-all cursor-pointer group no-underline">
-                    <div class="w-10 h-10 rounded-full bg-slate-200 flex items-center justify-center text-slate-600 group-hover:bg-green-100 group-hover:text-green-700 transition-colors">
-                      <span class="material-symbols-outlined">call</span>
+                  <!-- LinkedIn -->
+                  <a href="https://www.linkedin.com/in/frederick-dur%C3%A1n-529772385/" target="_blank" class="flex items-center gap-4 p-3 rounded-lg bg-slate-50 hover:bg-blue-50 border border-slate-100 hover:border-blue-200 transition-all cursor-pointer group no-underline">
+                    <div class="w-10 h-10 rounded-full bg-slate-200 flex items-center justify-center text-slate-600 group-hover:bg-blue-100 group-hover:text-blue-700 transition-colors">
+                      <span class="material-symbols-outlined">work</span>
                     </div>
                     <div class="flex flex-col">
-                      <span class="text-[10px] font-bold text-slate-400 uppercase tracking-wider">Línea Directa</span>
-                      <span class="text-sm text-slate-800 font-bold">+58 414-9083826</span>
+                      <span class="text-[10px] font-bold text-slate-400 uppercase tracking-wider">Perfil Profesional</span>
+                      <span class="text-sm text-slate-800 font-bold">LinkedIn</span>
                     </div>
                   </a>
 
@@ -96,7 +96,7 @@ import { ContactService } from '../../core/services';
                       <span class="material-symbols-outlined">code</span>
                     </div>
                     <div class="flex flex-col">
-                      <span class="text-[10px] font-bold text-slate-400 uppercase tracking-wider">GitHub Oficial</span>
+                      <span class="text-[10px] font-bold text-slate-400 uppercase tracking-wider">Repositorios</span>
                       <span class="text-sm text-slate-800 font-bold">ragnarsson03</span>
                     </div>
                   </a>
@@ -107,7 +107,7 @@ import { ContactService } from '../../core/services';
                       <span class="material-symbols-outlined">alternate_email</span>
                     </div>
                     <div class="flex flex-col truncate">
-                      <span class="text-[10px] font-bold text-slate-400 uppercase tracking-wider">Email</span>
+                      <span class="text-[10px] font-bold text-slate-400 uppercase tracking-wider">Email Directo</span>
                       <span class="text-sm text-slate-800 font-bold truncate">samirduran1000&#64;gmail.com</span>
                     </div>
                   </a>
@@ -115,11 +115,7 @@ import { ContactService } from '../../core/services';
                 </div>
               </div>
               
-              <!-- Decorative Secondary Image -->
-              <div class="bg-slate-900 rounded-xl shadow-sm border border-slate-100 overflow-hidden h-[150px] hidden lg:block relative group">
-                <div class="absolute inset-0 w-full h-full object-cover opacity-50 bg-blue-900 group-hover:scale-105 transition-transform duration-700 z-0"></div>
-                <div class="absolute inset-0 bg-blue-600/10 mix-blend-overlay"></div>
-              </div>
+              <!-- Omitimos la Decorative Secondary Image por ser redundante -->
             </div>
 
           </div>
