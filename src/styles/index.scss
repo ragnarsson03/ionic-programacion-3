@@ -1,0 +1,23 @@
+/**
+ * @file index.scss
+ * @description Punto de entrada unificado para el sistema de diseño.
+ * Implementa el patrón modular con subdirectorios (Base, Layout, Components).
+ */
+
+// 1. Abstracts (Variables y Funciones - No generan CSS por sí solas)
+@forward 'abstracts/variables';
+@forward 'abstracts/mixins';
+
+// 2. Base (Reajustes de navegador y fuentes)
+@use 'base/reset';
+@use 'base/typography';
+
+// 3. Layout (Estructuras de contenedores)
+@use 'layout/containers';
+
+// 4. Components (Estilos específicos de UI)
+@use 'components/cards';
+@use 'components/buttons';
+
+// 5. Global Extras
+@use 'animations';

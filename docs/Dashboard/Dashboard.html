@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+
+<html class="light" lang="es">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>UNETI Dashboard</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "inverse-primary": "#bec6e0",
+                        "surface-tint": "#565e74",
+                        "surface-container-highest": "#e0e3e5",
+                        "surface-bright": "#f7f9fb",
+                        "surface-container-high": "#e6e8ea",
+                        "on-primary": "#ffffff",
+                        "on-primary-container": "#7c839b",
+                        "inverse-surface": "#2d3133",
+                        "secondary-container": "#2170e4",
+                        "outline": "#76777d",
+                        "background": "#f7f9fb",
+                        "tertiary-container": "#07006c",
+                        "primary-container": "#131b2e",
+                        "primary-fixed-dim": "#bec6e0",
+                        "surface-dim": "#d8dadc",
+                        "surface": "#f7f9fb",
+                        "tertiary": "#000000",
+                        "error": "#ba1a1a",
+                        "on-secondary-fixed": "#001a42",
+                        "on-tertiary-container": "#7073ff",
+                        "outline-variant": "#c6c6cd",
+                        "tertiary-fixed-dim": "#c0c1ff",
+                        "on-secondary": "#ffffff",
+                        "surface-container": "#eceef0",
+                        "secondary": "#0058be",
+                        "on-tertiary": "#ffffff",
+                        "on-error-container": "#93000a",
+                        "tertiary-fixed": "#e1e0ff",
+                        "secondary-fixed-dim": "#adc6ff",
+                        "on-primary-fixed-variant": "#3f465c",
+                        "on-background": "#191c1e",
+                        "on-surface": "#191c1e",
+                        "secondary-fixed": "#d8e2ff",
+                        "inverse-on-surface": "#eff1f3",
+                        "error-container": "#ffdad6",
+                        "on-secondary-fixed-variant": "#004395",
+                        "primary-fixed": "#dae2fd",
+                        "on-tertiary-fixed": "#07006c",
+                        "surface-container-lowest": "#ffffff",
+                        "on-primary-fixed": "#131b2e",
+                        "primary": "#000000",
+                        "on-secondary-container": "#fefcff",
+                        "on-surface-variant": "#45464d",
+                        "on-tertiary-fixed-variant": "#2f2ebe",
+                        "surface-container-low": "#f2f4f6",
+                        "on-error": "#ffffff",
+                        "surface-variant": "#e0e3e5"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "lg": "40px",
+                        "xs": "4px",
+                        "md": "24px",
+                        "xl": "64px",
+                        "sm": "12px",
+                        "base": "8px",
+                        "container-margin": "20px",
+                        "gutter": "16px"
+                    },
+                    "fontFamily": {
+                        "title-lg": ["Inter"],
+                        "headline-md": ["Inter"],
+                        "display": ["Inter"],
+                        "label-sm": ["Inter"],
+                        "body-md": ["Inter"],
+                        "label-md": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "headline-lg": ["Inter"]
+                    },
+                    "fontSize": {
+                        "title-lg": ["20px", { "lineHeight": "1.4", "fontWeight": "600" }],
+                        "headline-md": ["24px", { "lineHeight": "1.3", "fontWeight": "600" }],
+                        "display": ["42px", { "lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "label-sm": ["12px", { "lineHeight": "1.2", "fontWeight": "600" }],
+                        "body-md": ["16px", { "lineHeight": "1.5", "fontWeight": "400" }],
+                        "label-md": ["14px", { "lineHeight": "1.4", "letterSpacing": "0.01em", "fontWeight": "500" }],
+                        "body-lg": ["18px", { "lineHeight": "1.6", "fontWeight": "400" }],
+                        "headline-lg": ["32px", { "lineHeight": "1.25", "letterSpacing": "-0.01em", "fontWeight": "600" }]
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+</head>
+
+<body class="bg-background text-on-background min-h-screen font-body-md">
+    <!-- TopAppBar -->
+    <header
+        class="fixed top-0 left-0 w-full z-50 bg-white/90 dark:bg-slate-900/90 backdrop-blur-md shadow-sm border-b border-slate-200 dark:border-slate-800 hidden md:block">
+        <div class="flex items-center justify-between px-4 h-16 w-full">
+            <div class="flex items-center gap-4">
+                <button
+                    class="p-2 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors active:scale-95 duration-200 rounded-full text-slate-600 dark:text-slate-400">
+                    <span class="material-symbols-outlined">menu</span>
+                </button>
+                <span
+                    class="text-xl font-black tracking-tight text-slate-900 dark:text-white font-['Inter']">UNETI</span>
+            </div>
+            <div class="flex items-center gap-6 font-['Inter'] font-bold text-slate-900 dark:text-slate-50">
+                <a class="text-blue-600 font-bold hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors active:scale-95 duration-200 px-3 py-2 rounded-lg"
+                    href="#">Dashboard</a>
+                <a class="text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors active:scale-95 duration-200 px-3 py-2 rounded-lg"
+                    href="#">Perfil</a>
+                <a class="text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors active:scale-95 duration-200 px-3 py-2 rounded-lg"
+                    href="#">Contact</a>
+            </div>
+            <div class="flex items-center gap-4">
+                <button
+                    class="p-1 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors active:scale-95 duration-200 rounded-full">
+                    <div
+                        class="w-8 h-8 rounded-full bg-primary-fixed text-on-primary-fixed flex items-center justify-center font-bold text-sm">
+                        CM
+                    </div>
+                </button>
+            </div>
+        </div>
+    </header>
+    <!-- SideNav / Drawer (Desktop) -->
+    <aside
+        class="fixed top-16 left-0 h-[calc(100vh-64px)] w-72 rounded-r-2xl bg-white dark:bg-slate-950 shadow-2xl divide-y divide-slate-100 dark:divide-slate-800 hidden md:flex flex-col py-6 z-40">
+        <div class="px-6 mb-6">
+            <div class="flex items-center gap-4 mb-6">
+                <div
+                    class="w-12 h-12 rounded-full border-2 border-secondary-container bg-surface-container flex items-center justify-center overflow-hidden">
+                    <span class="material-symbols-outlined text-outline">person</span>
+                </div>
+                <div>
+                    <h2 class="font-['Inter'] text-sm font-semibold text-slate-700 dark:text-slate-200">Carlos Márquez
+                    </h2>
+                    <p class="text-xs text-outline">Programación III Professor</p>
+                    <p class="text-[10px] text-primary-container font-medium mt-1">UNETI Admin</p>
+                </div>
+            </div>
+        </div>
+        <nav
+            class="flex-1 px-2 pt-4 flex flex-col gap-1 font-['Inter'] text-sm font-semibold text-slate-700 dark:text-slate-200">
+            <a class="flex items-center gap-3 px-4 py-3 bg-blue-50 dark:bg-blue-900/20 text-blue-700 dark:text-blue-300 rounded-lg mx-2 my-1 hover:translate-x-1 transition-transform duration-200 ease-in-out"
+                href="#">
+                <span class="material-symbols-outlined">dashboard</span>
+                Dashboard
+            </a>
+            <a class="flex items-center gap-3 px-4 py-3 text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-900 rounded-lg mx-2 my-1 hover:translate-x-1 transition-transform duration-200 ease-in-out"
+                href="#">
+                <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">person</span>
+                Perfil
+            </a>
+            <a class="flex items-center gap-3 px-4 py-3 text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-900 rounded-lg mx-2 my-1 hover:translate-x-1 transition-transform duration-200 ease-in-out"
+                href="#">
+                <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">mail</span>
+                Contact
+            </a>
+        </nav>
+    </aside>
+    <!-- Main Content -->
+    <main class="md:pl-72 pt-4 md:pt-24 pb-24 px-4 md:px-lg max-w-7xl mx-auto w-full">
+        <!-- Hero Section -->
+        <section class="mb-lg">
+            <div
+                class="relative w-full rounded-xl overflow-hidden shadow-[0_4px_16px_rgba(0,0,0,0.12)] min-h-[200px] md:min-h-[280px] bg-surface-container-high flex flex-col justify-end p-md md:p-lg">
+                <div class="absolute inset-0 bg-gradient-to-t from-primary-container/90 to-transparent z-10"></div>
+                <img alt="UNETI Banner" class="absolute inset-0 w-full h-full object-cover z-0"
+                    data-alt="A modern, high-tech architectural view of an advanced university campus at twilight. The scene is illuminated by sleek, blue and white LED accents highlighting geometric structures. The aesthetic is clean, corporate, and academic, blending deep navy shadows with crisp white highlights. The mood is innovative and authoritative, reflecting a premium educational environment."
+                    src="https://lh3.googleusercontent.com/aida/ADBb0ugM-oFpNF7WvUnJn44J2LO4b1ngOg_YPJsQSIWNnnxNTODQ2CXTaLWal8kIDoc3Dmot5G_uSezJx8o5PMUeIdQURmUNb3YXYWQMi9nGKUwH_M_MeveytEzJ4IlFRTF7UG48QgkMDY4KXLPPWeCCplU0G56uXQJ39i4G2EyRNOx79gWVOXpy_PjUshyuzFFxHD51RsVKL54m4yGHBDp2I3v2bNJ-rPN9jndDAElnI-wvkpmj3-eM-QiF4YgqN8pBNsOEffO63X2Ilg" />
+                <div class="relative z-20 text-on-primary">
+                    <h1 class="font-headline-lg text-headline-lg mb-xs">Bienvenido Profesor Carlos Márquez 👋🏻</h1>
+                    <p class="font-body-lg text-body-lg text-primary-fixed-dim max-w-2xl">Estás en la Evaluación 1 de
+                        Programación III. Una arquitectura modular, tipado estricto y diseño premium.</p>
+                </div>
+            </div>
+        </section>
+        <!-- Stack Tecnológico Section (Bento Grid) -->
+        <section>
+            <div class="flex items-center justify-between mb-md">
+                <h2 class="font-headline-md text-headline-md text-on-surface">Stack Tecnológico</h2>
+                <button
+                    class="px-4 py-2 rounded-lg bg-transparent border border-secondary-container text-secondary-container font-label-md text-label-md hover:bg-surface-container-low transition-colors">
+                    View All
+                </button>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-gutter">
+                <!-- Ionic Card -->
+                <div
+                    class="bg-surface-container-lowest rounded-xl p-md shadow-[0_4px_16px_rgba(0,0,0,0.12)] hover:shadow-[0_8px_24px_rgba(0,0,0,0.18)] transition-shadow border border-transparent hover:border-secondary-fixed-dim group flex flex-col h-full relative overflow-hidden">
+                    <div
+                        class="absolute top-0 right-0 w-32 h-32 bg-secondary-fixed/20 rounded-bl-full -mr-8 -mt-8 z-0 transition-transform group-hover:scale-110">
+                    </div>
+                    <div class="relative z-10 flex-1">
+                        <div
+                            class="w-12 h-12 rounded-lg bg-surface-container flex items-center justify-center mb-sm text-secondary-container">
+                            <span class="material-symbols-outlined text-[28px]"
+                                style="font-variation-settings: 'FILL' 1;">phone_iphone</span>
+                        </div>
+                        <h3 class="font-title-lg text-title-lg text-on-surface mb-xs">Ionic v8</h3>
+                        <p class="font-body-md text-body-md text-on-surface-variant">Componentes UI Híbridos</p>
+                    </div>
+                    <div class="mt-md relative z-10">
+                        <div class="h-1 w-full bg-surface-container-high rounded-full overflow-hidden">
+                            <div class="h-full bg-secondary-container w-3/4 rounded-full"></div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Angular Card -->
+                <div
+                    class="bg-surface-container-lowest rounded-xl p-md shadow-[0_4px_16px_rgba(0,0,0,0.12)] hover:shadow-[0_8px_24px_rgba(0,0,0,0.18)] transition-shadow border border-transparent hover:border-error-container group flex flex-col h-full relative overflow-hidden">
+                    <div
+                        class="absolute top-0 right-0 w-32 h-32 bg-error-container/20 rounded-bl-full -mr-8 -mt-8 z-0 transition-transform group-hover:scale-110">
+                    </div>
+                    <div class="relative z-10 flex-1">
+                        <div
+                            class="w-12 h-12 rounded-lg bg-surface-container flex items-center justify-center mb-sm text-error">
+                            <span class="material-symbols-outlined text-[28px]"
+                                style="font-variation-settings: 'FILL' 1;">view_quilt</span>
+                        </div>
+                        <h3 class="font-title-lg text-title-lg text-on-surface mb-xs">Angular v20</h3>
+                        <p class="font-body-md text-body-md text-on-surface-variant">Standalone Architecture</p>
+                    </div>
+                    <div class="mt-md relative z-10">
+                        <div
+                            class="inline-flex items-center px-2 py-1 rounded-full bg-error-container/30 text-error font-label-sm text-label-sm gap-1">
+                            <span class="material-symbols-outlined text-[14px]">check_circle</span>
+                            Core Concept
+                        </div>
+                    </div>
+                </div>
+                <!-- Tailwind Card (Spans 2 rows on desktop if we wanted to make it true bento, but keeping simple grid for now) -->
+                <div
+                    class="bg-surface-container-lowest rounded-xl shadow-[0_4px_16px_rgba(0,0,0,0.12)] hover:shadow-[0_8px_24px_rgba(0,0,0,0.18)] transition-shadow border border-transparent hover:border-secondary-fixed-dim group flex flex-col h-full relative overflow-hidden md:col-span-2 lg:col-span-1">
+                    <div class="h-32 w-full relative">
+                        <img alt="Tailwind abstract" class="w-full h-full object-cover"
+                            data-alt="Abstract digital representation of flowing wind or ocean waves using a minimal, geometric style. The color palette focuses on crisp whites, soft light grays, and bright cyan/teal accents to represent utility classes and fluid design. The mood is highly structured, modern, and efficient, perfectly aligning with a premium corporate tech aesthetic."
+                            src="https://lh3.googleusercontent.com/aida/ADBb0ujy80Uonk5knF-imhlSgaYZDuC_zB_oV1RbbXsxPMzLIxgreZpMVEgVlwY5rdUzPBtnZYd2vZf6dmcSeOdSXcRSx5_OvA8xujtDkdD8UWmFbFxanygdssR9P7WfjPIrRS5G-B0QTGA3TeFiB299plZLIOWC0c5n95wqOdbU68cDkcxHkb9MtJUMPJ8L46nRro0pu2MwtK4_lFV3WQpqCM7gRp9dhzLnFn5YxQ214XmUFFOkneayJBqOs9dx6A2q7EEjk0eo-zN2_As" />
+                        <div class="absolute inset-0 bg-gradient-to-t from-surface-container-lowest to-transparent">
+                        </div>
+                    </div>
+                    <div class="p-md relative z-10 flex-1 -mt-8">
+                        <div
+                            class="w-12 h-12 rounded-lg bg-surface-container-lowest shadow-sm flex items-center justify-center mb-sm text-[#38bdf8]">
+                            <span class="material-symbols-outlined text-[28px]"
+                                style="font-variation-settings: 'FILL' 1;">waves</span>
+                        </div>
+                        <h3 class="font-title-lg text-title-lg text-on-surface mb-xs">Tailwind CSS v3</h3>
+                        <p class="font-body-md text-body-md text-on-surface-variant">Utility-first Design</p>
+                    </div>
+                </div>
+                <!-- Dart Sass Card -->
+                <div
+                    class="bg-surface-container-lowest rounded-xl p-md shadow-[0_4px_16px_rgba(0,0,0,0.12)] hover:shadow-[0_8px_24px_rgba(0,0,0,0.18)] transition-shadow border border-transparent hover:border-[#bf4080] group flex flex-col h-full relative overflow-hidden">
+                    <div
+                        class="absolute top-0 right-0 w-32 h-32 bg-[#bf4080]/10 rounded-bl-full -mr-8 -mt-8 z-0 transition-transform group-hover:scale-110">
+                    </div>
+                    <div class="relative z-10 flex-1">
+                        <div
+                            class="w-12 h-12 rounded-lg bg-surface-container flex items-center justify-center mb-sm text-[#bf4080]">
+                            <span class="material-symbols-outlined text-[28px]"
+                                style="font-variation-settings: 'FILL' 1;">style</span>
+                        </div>
+                        <h3 class="font-title-lg text-title-lg text-on-surface mb-xs">Dart Sass</h3>
+                        <p class="font-body-md text-body-md text-on-surface-variant">Modular Style System</p>
+                    </div>
+                </div>
+                <!-- Animate.css Card -->
+                <div
+                    class="bg-surface-container-lowest rounded-xl p-md shadow-[0_4px_16px_rgba(0,0,0,0.12)] hover:shadow-[0_8px_24px_rgba(0,0,0,0.18)] transition-shadow border border-transparent hover:border-tertiary-fixed-dim group flex flex-col h-full relative overflow-hidden">
+                    <div
+                        class="absolute top-0 right-0 w-32 h-32 bg-tertiary-fixed/30 rounded-bl-full -mr-8 -mt-8 z-0 transition-transform group-hover:scale-110">
+                    </div>
+                    <div class="relative z-10 flex-1">
+                        <div
+                            class="w-12 h-12 rounded-lg bg-surface-container flex items-center justify-center mb-sm text-tertiary-container">
+                            <span class="material-symbols-outlined text-[28px]"
+                                style="font-variation-settings: 'FILL' 1;">animation</span>
+                        </div>
+                        <h3 class="font-title-lg text-title-lg text-on-surface mb-xs">Animate.css</h3>
+                        <p class="font-body-md text-body-md text-on-surface-variant">Motion Design</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <!-- BottomNavBar (Mobile) -->
+    <nav
+        class="fixed bottom-0 left-0 w-full z-50 rounded-t-xl bg-white dark:bg-slate-900 border-t border-slate-200 dark:border-slate-800 shadow-[0_-4px_12px_rgba(0,0,0,0.05)] md:hidden">
+        <div class="flex justify-around items-center h-16 w-full px-2 pb-safe">
+            <a class="flex flex-col items-center justify-center bg-blue-50 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 rounded-2xl px-5 py-1 hover:text-blue-500 transition-all active:scale-90 duration-150"
+                href="#">
+                <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">dashboard</span>
+                <span class="text-[10px] font-medium font-['Inter'] mt-1">Dashboard</span>
+            </a>
+            <a class="flex flex-col items-center justify-center text-slate-500 dark:text-slate-400 px-5 py-1 hover:text-blue-500 transition-all active:scale-90 duration-150"
+                href="#">
+                <span class="material-symbols-outlined">person</span>
+                <span class="text-[10px] font-medium font-['Inter'] mt-1">Perfil</span>
+            </a>
+            <a class="flex flex-col items-center justify-center text-slate-500 dark:text-slate-400 px-5 py-1 hover:text-blue-500 transition-all active:scale-90 duration-150"
+                href="#">
+                <span class="material-symbols-outlined">mail</span>
+                <span class="text-[10px] font-medium font-['Inter'] mt-1">Contact</span>
+            </a>
+        </div>
+    </nav>
+</body>
+
+</html>
