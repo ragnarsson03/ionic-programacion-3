@@ -31,4 +31,5 @@ export interface StackItem {
   descripcion: string;
   icono:       string;
   color:       string;
+  urlDocs?:    string;
 }
