@@ -19,8 +19,7 @@ import { StackItem } from '../../core/models';
               
               <!-- HTML5 Video Loop -->
               <video class="absolute inset-0 w-full h-full object-cover z-0 opacity-40 mix-blend-screen bg-blue-900" autoplay loop muted playsinline>
-                <!-- Guárdalo como MP4 y se verá espectacular -->
-                <source src="assets/hero-bg.mp4" type="video/mp4" />
+                <source src="assets/hero-bg/hero-bg.mp4" type="video/mp4" />
               </video>
               
               <div class="relative z-20 text-white">

@@ -43,7 +43,7 @@ export class ContactService {
     // 🚀 WOW FACTOR (Sin Backend Físico):
     // Usamos la API pública de WhatsApp para generar un enlace "Click to Chat" con 
     // los datos del formulario inyectados dinámicamente como parámetros URL.
-    const textBase = `Hola Samir, te escribo desde la UNETI App.\n\n*👤 Remitente:* ${nombre}\n*📝 Mensaje:* ${mensaje}`;
+    const textBase = `Hola Samir, te escribo desde mi Portafolio Iotic 🚀.\n\n*👤 Remitente:* ${nombre}\n*📝 Mensaje:* ${mensaje}`;
     const urlWa = `https://wa.me/584149083826?text=${encodeURIComponent(textBase)}`;
     
     // Abre WhatsApp Web o la App Móvil en una pestaña nueva con el mensaje listo.

@@ -29,8 +29,9 @@ import { ContactService } from '../../core/services';
           <!-- Hero Section -->
           <section class="relative w-full h-[200px] md:h-[300px] rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-shadow bg-slate-900 border border-slate-100 dark:border-slate-800">
             <div class="absolute inset-0 w-full h-full object-cover opacity-50 bg-blue-900 z-0 mix-blend-luminosity"></div>
-            <div class="absolute inset-0 bg-gradient-to-t from-slate-900/80 to-transparent z-10 flex items-end p-md lg:p-lg">
+            <div class="absolute inset-0 bg-gradient-to-t from-slate-900/80 to-transparent z-10 flex flex-col justify-end p-md lg:p-lg">
               <h1 class="font-display text-4xl md:text-5xl font-extrabold text-white">Envíame un mensaje</h1>
+              <p class="text-slate-300 font-medium mt-2 text-lg max-w-lg">Disponible para proyectos en todo el mundo como desarrollador remoto. 🌍</p>
             </div>
           </section>
 

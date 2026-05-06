@@ -11,15 +11,18 @@ import { CommonModule } from '@angular/common';
       <main class="md:pl-72 pt-16 md:pt-0 pb-20 md:pb-0 min-h-screen bg-background dark:bg-slate-950 transition-colors">
         <div class="px-4 md:px-lg max-w-7xl mx-auto w-full py-6 md:py-10 animate__animated animate__fadeIn">
           
-          <!-- Header Banner -->
+          <!-- Header Banner (Video Background) -->
           <div class="relative w-full h-48 md:h-64 mb-20">
-            <!-- Capa con overflow oculto solo para la imagen de fondo -->
+            <!-- Capa con overflow oculto para el video -->
             <div class="absolute inset-0 w-full h-full rounded-xl overflow-hidden shadow-sm border border-slate-100 dark:border-slate-800 bg-slate-900">
-              <img src="https://lh3.googleusercontent.com/aida/ADBb0ujy80Uonk5knF-imhlSgaYZDuC_zB_oV1RbbXsxPMzLIxgreZpMVEgVlwY5rdUzPBtnZYd2vZf6dmcSeOdSXcRSx5_OvA8xujtDkdD8UWmFbFxanygdssR9P7WfjPIrRS5G-B0QTGA3TeFiB299plZLIOWC0c5n95wqOdbU68cDkcxHkb9MtJUMPJ8L46nRro0pu2MwtK4_lFV3WQpqCM7gRp9dhzLnFn5YxQ214XmUFFOkneayJBqOs9dx6A2q7EEjk0eo-zN2_As" alt="Profile Header Banner" class="w-full h-full object-cover opacity-80 mix-blend-luminosity hover:mix-blend-normal transition-all">
+              <video class="w-full h-full object-cover opacity-60 mix-blend-screen transition-all" autoplay loop muted playsinline>
+                <source src="assets/code/code.mp4" type="video/mp4" />
+              </video>
+              <div class="absolute inset-0 bg-gradient-to-t from-slate-900/40 to-transparent z-10"></div>
             </div>
             
-            <!-- Avatar overlapping libre del overflow parent -->
-            <div class="absolute -bottom-16 left-6 md:left-12 flex items-end gap-6 z-10">
+            <!-- Avatar overlapping -->
+            <div class="absolute -bottom-16 left-6 md:left-12 flex items-end gap-6 z-20">
               <div class="w-32 h-32 rounded-full border-4 border-white dark:border-slate-900 bg-surface dark:bg-slate-800 shadow-md overflow-hidden flex items-center justify-center">
                 <img src="assets/dog-dev/dog-dev.jpeg" alt="Avatar" class="w-full h-full object-cover">
               </div>
@@ -76,14 +79,26 @@ import { CommonModule } from '@angular/common';
               <div class="flex flex-col gap-4">
                 <div class="text-xs text-slate-400 dark:text-slate-500 uppercase tracking-wider">Librerías Base</div>
                 <div class="flex flex-wrap gap-2">
-                  <span class="px-4 py-2 bg-red-50 dark:bg-red-900/20 text-red-700 dark:text-red-400 text-sm font-semibold rounded-lg flex items-center gap-2 border border-red-100 dark:border-red-900/30">
-                    <span class="material-symbols-outlined text-sm">integration_instructions</span> Angular
+                  <span class="px-3 py-1.5 bg-red-50 dark:bg-red-900/20 text-red-700 dark:text-red-400 text-sm font-semibold rounded-lg flex items-center gap-1.5 border border-red-100 dark:border-red-900/30">
+                    <span class="material-symbols-outlined text-[16px]">integration_instructions</span> Angular
                   </span>
-                  <span class="px-4 py-2 bg-blue-50 dark:bg-blue-900/20 text-blue-700 dark:text-blue-400 text-sm font-semibold rounded-lg flex items-center gap-2 border border-blue-100 dark:border-blue-900/30">
-                    <span class="material-symbols-outlined text-sm">devices</span> Ionic
+                  <span class="px-3 py-1.5 bg-blue-50 dark:bg-blue-900/20 text-blue-700 dark:text-blue-400 text-sm font-semibold rounded-lg flex items-center gap-1.5 border border-blue-100 dark:border-blue-900/30">
+                    <span class="material-symbols-outlined text-[16px]">devices</span> Ionic
                   </span>
-                  <span class="px-4 py-2 bg-teal-50 dark:bg-teal-900/20 text-teal-700 dark:text-teal-400 text-sm font-semibold rounded-lg flex items-center gap-2 border border-teal-100 dark:border-teal-900/30">
-                    <span class="material-symbols-outlined text-sm">waves</span> Tailwind
+                  <span class="px-3 py-1.5 bg-teal-50 dark:bg-teal-900/20 text-teal-700 dark:text-teal-400 text-sm font-semibold rounded-lg flex items-center gap-1.5 border border-teal-100 dark:border-teal-900/30">
+                    <span class="material-symbols-outlined text-[16px]">waves</span> Tailwind
+                  </span>
+                  <span class="px-3 py-1.5 bg-blue-50 dark:bg-blue-900/10 text-blue-800 dark:text-blue-300 text-sm font-semibold rounded-lg flex items-center gap-1.5 border border-blue-200 dark:border-blue-800/40">
+                    <span class="material-symbols-outlined text-[16px]">code_blocks</span> TypeScript
+                  </span>
+                  <span class="px-3 py-1.5 bg-pink-50 dark:bg-pink-900/10 text-pink-700 dark:text-pink-400 text-sm font-semibold rounded-lg flex items-center gap-1.5 border border-pink-100 dark:border-pink-900/30">
+                    <span class="material-symbols-outlined text-[16px]">palette</span> SCSS
+                  </span>
+                  <span class="px-3 py-1.5 bg-green-50 dark:bg-green-900/10 text-green-700 dark:text-green-400 text-sm font-semibold rounded-lg flex items-center gap-1.5 border border-green-100 dark:border-green-900/30">
+                    <span class="material-symbols-outlined text-[16px]">dns</span> Node.js
+                  </span>
+                  <span class="px-3 py-1.5 bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 text-sm font-semibold rounded-lg flex items-center gap-1.5 border border-slate-200 dark:border-slate-700">
+                    <span class="material-symbols-outlined text-[16px]">merge</span> Git
                   </span>
                 </div>
               </div>
