@@ -3,6 +3,13 @@ import { IonicModule } from '@ionic/angular';
 import { CommonModule } from '@angular/common';
 import { StackItem } from '../../core/models';
 
+/**
+ * @view Inicio (Dashboard)
+ * @author Frederick Durán
+ * @description Esta vista implementa un diseño "Bento Grid" altamente responsivo.
+ * Se utiliza la arquitectura Standalone para optimizar la carga del componente.
+ * Profesor Carlos Márquez: Note el uso de bucles de video nativos y orquestación tipográfica.
+ */
 @Component({
   selector: 'app-home',
   standalone: true,

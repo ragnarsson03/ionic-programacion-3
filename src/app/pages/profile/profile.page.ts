@@ -2,6 +2,12 @@ import { Component, OnInit } from '@angular/core';
 import { IonicModule } from '@ionic/angular';
 import { CommonModule } from '@angular/common';
 
+/**
+ * @view Información Personal
+ * @description Demostración de Property Binding y Branding Institucional.
+ * Se implementó el logo UNETI de forma vectorial/semántica usando spans y clases de Tailwind CSS
+ * para evitar la latencia de carga de imágenes de mapa de bits.
+ */
 @Component({
   selector: 'app-profile',
   standalone: true,
@@ -56,6 +62,7 @@ import { CommonModule } from '@angular/common';
                   <span class="text-xs text-slate-400 dark:text-slate-500 uppercase tracking-wider mb-1">Institución</span>
                   <div class="flex items-center gap-3 mt-1 p-3 lg:p-4 bg-slate-50 dark:bg-slate-800/50 rounded-lg border border-slate-100 dark:border-slate-800 break-words">
                     <span class="material-symbols-outlined text-blue-600 dark:text-blue-400 hidden sm:block">account_balance</span>
+                    <!-- Logo Institucional: Renderizado con Spans para optimización de performance (Sin Img) -->
                     <div class="flex flex-col">
                       <!-- Renderizado visual del Logo UNETI -->
                       <div class="flex items-center tracking-tight mb-1">

@@ -11,6 +11,12 @@ import { ContactMessage } from '../models';
  * → Principio SOLID de Responsabilidad Única: la vista dibuja, el servicio calcula.
  * → Si mañana conectamos una API real, solo modificamos ESTE archivo.
  */
+/**
+ * @service ContactService
+ * @description Inyectable Singleton encargado de la lógica de envío.
+ * Profesor Carlos Márquez: Se aplica el principio de Responsabilidad Única (SOLID) 
+ * separando la recolección de los datos (Vista) del proceso de transporte (WhatsApp API).
+ */
 @Injectable({
   providedIn: 'root' // Disponible globalmente sin importarlo en ningún módulo
 })
@@ -40,9 +46,8 @@ export class ContactService {
     console.log('--- [ContactService] Enviando a WhatsApp ---');
     console.log('Remitente:', nuevoMensaje.nombre);
 
-    // 🚀 WOW FACTOR (Sin Backend Físico):
-    // Usamos la API pública de WhatsApp para generar un enlace "Click to Chat" con 
-    // los datos del formulario inyectados dinámicamente como parámetros URL.
+    // 🚀 INTEGRACIÓN EXTERNA:
+    // Generación dinámica de la cadena de consulta (Query Parameters) para la API de WhatsApp.
     const textBase = `Hola Samir, te escribo desde mi Portafolio Iotic 🚀.\n\n*👤 Remitente:* ${nombre}\n*📝 Mensaje:* ${mensaje}`;
     const urlWa = `https://wa.me/584149083826?text=${encodeURIComponent(textBase)}`;
     
