@@ -1,90 +1,84 @@
-# Frontend — Ionic Angular 📱
+# Portafolio Profesional: Academic Excellence UI 🚀
 
-Este directorio contiene el **código fuente completo** de la aplicación móvil híbrida desarrollada con Ionic v8 y Angular v20, cumpliendo los requerimientos de la **Evaluación 1 de Programación III**.
+Este repositorio contiene la entrega consolidada de las **Evaluaciones 1 y 2** de la asignatura **Programación III**. La aplicación ha evolucionado de un prototipo base hacia un **Portafolio Profesional de Alto Nivel** desarrollado con el ecosistema de **Ionic v8** y **Angular v18+**.
 
 <div align="center">
 
   <img src="https://img.shields.io/badge/Ionic-3880FF?style=for-the-badge&logo=ionic&logoColor=white" alt="Ionic" />
   <img src="https://img.shields.io/badge/Angular-DD0031?style=for-the-badge&logo=angular&logoColor=white" alt="Angular" />
+  <img src="https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white" alt="Tailwind" />
   <img src="https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white" alt="TypeScript" />
-  <img src="https://img.shields.io/badge/SCSS-CC6699?style=for-the-badge&logo=sass&logoColor=white" alt="SCSS" />
-  <img src="https://img.shields.io/badge/Animate.css-1ABC9C?style=for-the-badge&logo=css3&logoColor=white" alt="Animate.css" />
+  <img src="https://img.shields.io/badge/Vercel-000000?style=for-the-badge&logo=vercel&logoColor=white" alt="Vercel" />
 
 </div>
 
 ---
 
-## 🗺️ Vistas de la Aplicación (3 Menús Requeridos)
-
-| Vista | Ruta | Concepto Angular Demostrado |
-|---|---|---|
-| **Inicio** | `/home` | Interpolación `{{ }}`, Interfaz TypeScript, `@for` |
-| **Información Personal** | `/profile` | Data-Binding completo, Property Binding `[ ]` |
-| **Contacto** | `/contact` | Two-Way Binding `[(ngModel)]`, Event Binding `(click)` |
+## 🌐 Demo En Vivo
+Puedes visualizar el resultado final desplegado en producción aquí:  
+👉 **[Link del Despliegue en Vercel](https://ionic-programacion-3.vercel.app)** *(Actualiza con tu link real)*
 
 ---
 
-## 📁 Arquitectura de Carpetas
+## ✨ Características Principales (Highlight Features)
+
+### 🌓 Dark Mode Nativo & Reactivo
+Implementación de un sistema de temas dinámico que inyecta la clase `.dark` en el root de la aplicación. Soporte completo en todas las vistas (Home, Profile, Contact) mediante utilidades de Tailwind CSS.
+
+### 🎥 Multimedia & Branding "Iotic"
+- **Hero Video Background:** Integración de bucles de video de alta calidad (HTML5 Video) optimizados para web.
+- **Identidad Visual UNETI:** Rebranding semántico utilizando los colores oficiales (Naranja #F97316 y Azul #1E3A8A) aplicados mediante tipografía pura (sin imágenes pesadas).
+- **Iconografía dinámina:** Integración del logo **Iotic** en la Shell de navegación.
+
+### 📱 Full Standalone Architecture
+Migración total de `NgModules` a **Standalone Components**, reduciendo el tamaño del bundle inicial y siguiendo las mejores prácticas de Angular 17/18.
+
+---
+
+## 🗺️ Vistas de la Aplicación (Requerimientos)
+
+| Vista | Conceptos Técnicos Demostrados |
+|---|---|
+| **🏠 Inicio** | Video Loops, Bento Grid Layout, Inyección de Modelos de Datos. |
+| **👤 Info Personal** | Diseño de Avatar dinámico, Branding Institucional UNETI. |
+| **✉️ Contacto** | Two-Way Binding `[(ngModel)]`, Event Handling, Integración WhatsApp API. |
+
+---
+
+## 📁 Estructura del Proyecto (Root-First)
 
 ```
-frontend/
+/
 ├── src/
 │   ├── app/
 │   │   ├── pages/
-│   │   │   ├── home/           ← Vista Inicio (Saludo al profesor, Stack)
-│   │   │   ├── profile/        ← Vista Info Personal (Datos del estudiante)
-│   │   │   └── contact/        ← Vista Contacto (Formulario con ngModel)
-│   │   ├── app.component.ts    ← Controlador del SideMenu (Menú lateral)
-│   │   ├── app.component.html  ← Template del layout principal
-│   │   └── app-routing.module.ts ← Definición de rutas (Lazy Loading)
-│   ├── styles/                 ← 🎨 Sistema de estilos centralizado (SCSS)
-│   │   ├── index.scss          ← Barrel (punto de entrada único)
-│   │   ├── _variables.scss     ← Design Tokens (colores, fuentes, espacios)
-│   │   ├── _reset.scss         ← Normalización CSS cross-platform
-│   │   ├── _typography.scss    ← Jerarquía tipográfica global
-│   │   └── _animations.scss    ← Config. de Animate.css + keyframes propios
-│   ├── global.scss             ← Importa el barrel /styles/index.scss
-│   └── index.html              ← HTML de entrada de la Single Page App
-├── package.json
-└── angular.json
+│   │   │   ├── home/           ← Dashboard con Proyectos y Tech Stack
+│   │   │   ├── profile/        ← Identidad Académica y Skills
+│   │   │   └── contact/        ← Formulario Reactivo y Link de Envío
+│   │   ├── core/               ← Modelos y Servicios Singletons
+│   ├── assets/                 ← Multimedia, Iconos y Logos optimizados
+├── angular.json                ← Config. de Output en carpeta /www para Vercel
+├── tailwind.config.js          ← Configuración de Design Tokens
+└── package.json
 ```
 
 ---
 
-## 🎨 Sistema de Diseño (Tailwind + Global SCSS)
+## 🚀 Despliegue & DevOps
 
-Se ha migrado a un sistema de diseño basado en utilidades (**Tailwind CSS**), lo que permite:
-1. **Eliminar archivos `.scss` por componente:** El diseño vive dentro del `.ts` embebido.
-2. **Estabilidad:** Versión v3.4.17 optimizada para Node.js v25.
-3. **Mantenimiento:** Configuración centralizada en `tailwind.config.js`.
-
-### Convención de nombrado SCSS
-- Archivos parciales: `_nombre.scss` (con guión bajo = no compila solo).
-- Punto de entrada: `index.scss` (sin guión bajo = compila).
+Este proyecto está configurado para la entrega continua:
+- **Output:** `www/` (Configurado en `angular.json`).
+- **Límite de Archivos:** Assets multimedia optimizados bajo el límite de 100MB de GitHub/Vercel.
+- **Comando de Build:** `npm run build` (usando Angular CLI local).
 
 ---
 
-## 🚀 Desarrollo Local
+## 🛠️ Desarrollo Local
 
 ```bash
-# Dentro de /frontend
-npm install     # Instalar dependencias
-npm start       # Servidor dev → http://localhost:4200
-
-# Para probar en modo móvil:
-# F12 en el navegador → ícono de dispositivo móvil (arriba izquierda)
-# Seleccionar "iPhone 14" o "Galaxy S20"
+git clone https://github.com/ragnarsson03/ionic-programacion-3.git
+npm install
+npm start
 ```
 
----
-
-## 📐 Convenciones de Código
-
-| Aspecto | Convención |
-|---|---|
-| Archivos y variables | `camelCase` en Inglés |
-| Comentarios de código | JSDoc en Inglés + explicación en Español |
-| Texto visible (UI) | Español |
-| Estilos | SCSS con variables centralizadas (sin Tailwind) |
-
-*Evaluación 1 — Programación III — UNETI 2026-1*
+*Desarrollado por: **Frederick Durán (@ragnarsson03)** — UNETI 2026*
