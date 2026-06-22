@@ -24,9 +24,12 @@ import { StackItem } from '../../core/models';
             <div class="relative w-full rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-shadow duration-300 min-h-[200px] md:min-h-[280px] bg-slate-900 flex flex-col justify-end p-md md:p-lg border border-slate-200 dark:border-slate-800">
               <div class="absolute inset-0 bg-gradient-to-t from-slate-900/95 via-slate-900/60 to-transparent z-10"></div>
               
-              <!-- HTML5 Video Loop (Forced Autoplay) -->
-              <video class="absolute inset-0 w-full h-full object-cover z-0 opacity-40 mix-blend-screen bg-blue-900" autoplay loop [muted]="true" playsinline defaultMuted onloadedmetadata="this.muted=true">
-                <source src="assets/hero-bg/hero-bg.mp4" type="video/mp4" />
+              <!-- HTML5 Video Loop (Optimizado SD2) -->
+              <video class="absolute inset-0 w-full h-full object-cover z-0 opacity-40 mix-blend-screen bg-blue-900" 
+                autoplay loop [muted]="true" playsinline preload="auto" 
+                poster="assets/hero-poster.png">
+                <source src="assets/hero-bg/hero-bg.webm" type="video/webm" />
+                <source src="assets/hero-bg/hero-bg-small.mp4" type="video/mp4" />
               </video>
               
               <div class="relative z-20 text-white">

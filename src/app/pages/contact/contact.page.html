@@ -1,0 +1,161 @@
+<ion-content>
+  <main class="md:pl-72 pt-16 md:pt-0 pb-20 md:pb-0 min-h-screen bg-background dark:bg-slate-950 transition-colors">
+    <div class="px-4 md:px-lg max-w-7xl mx-auto w-full py-6 md:py-10 animate__animated animate__fadeIn space-y-6">
+      
+      <!-- Hero Section (Updated with Background) -->
+      <section class="relative w-full h-[200px] md:h-[300px] rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-shadow bg-slate-900 border border-slate-100 dark:border-slate-800">
+        <img src="assets/contact-bg.png" class="absolute inset-0 w-full h-full object-cover opacity-60 z-0" alt="Background">
+        <div class="absolute inset-0 bg-gradient-to-t from-slate-900/90 to-transparent z-10 flex flex-col justify-end p-md lg:p-lg">
+          <h1 class="font-display text-4xl md:text-5xl font-extrabold text-white">Interactividad Pro</h1>
+          <p class="text-slate-300 font-medium mt-2 text-lg max-w-lg">SD2: Formularios Reactivos & Feedback Instantáneo. ⚡</p>
+        </div>
+      </section>
+
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-md items-start">
+        
+        <!-- Form Card (Bento Left) -->
+        <div class="lg:col-span-7 bg-white dark:bg-slate-900 rounded-xl shadow-sm border border-slate-100 dark:border-slate-800 hover:shadow-md hover:border-blue-200 dark:hover:border-blue-800 transition-all duration-300 p-md flex flex-col gap-md">
+          <div>
+            <h2 class="font-headline-md text-2xl font-bold text-slate-900 dark:text-white mb-xs flex items-center gap-2">
+              <span class="material-symbols-outlined text-blue-600 dark:text-blue-400">dynamic_form</span> REACTIVE FORMS & TOASTS
+            </h2>
+            <p class="text-slate-500 dark:text-slate-400 font-medium">Validación programática y respuestas visuales del sistema.</p>
+          </div>
+          
+          <!-- Formulario Reactivo -->
+          <form [formGroup]="contactForm" (ngSubmit)="enviarMensaje()" class="flex flex-col gap-4 mt-2">
+             
+             <!-- Campo Nombre -->
+             <div class="flex flex-col gap-1">
+                <label class="text-sm font-bold text-slate-700 dark:text-slate-300" for="nombre">Nombre Completo</label>
+                <input 
+                  formControlName="nombre" 
+                  class="w-full h-12 px-4 rounded-lg border focus:ring-1 outline-none bg-slate-50 dark:bg-slate-800 text-slate-800 dark:text-slate-200 transition-all"
+                  [ngClass]="{'border-red-500 ring-red-500': isInvalid('nombre'), 'border-slate-200 dark:border-slate-800 focus:border-blue-500': !isInvalid('nombre')}"
+                  id="nombre" 
+                  placeholder="Ej. Frederick Durán" 
+                  type="text"/>
+                @if (isInvalid('nombre')) {
+                  <span class="text-red-500 text-xs font-bold animate__animated animate__headShake">
+                    * El nombre es obligatorio
+                  </span>
+                }
+             </div>
+
+             <!-- Campo Email -->
+             <div class="flex flex-col gap-1 mt-2">
+                <label class="text-sm font-bold text-slate-700 dark:text-slate-300" for="email">Correo Electrónico</label>
+                <input 
+                  formControlName="email" 
+                  class="w-full h-12 px-4 rounded-lg border focus:ring-1 outline-none bg-slate-50 dark:bg-slate-800 text-slate-800 dark:text-slate-200 transition-all"
+                  [ngClass]="{'border-red-500 ring-red-500': isInvalid('email'), 'border-slate-200 dark:border-slate-800 focus:border-blue-500': !isInvalid('email')}"
+                  id="email" 
+                  placeholder="usuario@ejemplo.com" 
+                  type="email"/>
+                @if (isInvalid('email')) {
+                  <span class="text-red-500 text-xs font-bold animate__animated animate__headShake">
+                    * Ingresa un correo electrónico válido
+                  </span>
+                }
+             </div>
+             
+             <!-- Campo Mensaje -->
+             <div class="flex flex-col gap-1 mt-2">
+                <label class="text-sm font-bold text-slate-700 dark:text-slate-300" for="mensaje">Mensaje</label>
+                <textarea 
+                  formControlName="mensaje" 
+                  class="w-full p-4 rounded-lg border focus:ring-1 outline-none bg-slate-50 dark:bg-slate-800 text-slate-800 dark:text-slate-200 resize-none transition-all"
+                  [ngClass]="{'border-red-500 ring-red-500': isInvalid('mensaje'), 'border-slate-200 dark:border-slate-800 focus:border-blue-500': !isInvalid('mensaje')}"
+                  id="mensaje" 
+                  placeholder="Explícame tu proyecto o idea..." 
+                  rows="4"></textarea>
+                @if (isInvalid('mensaje')) {
+                  <span class="text-red-500 text-xs font-bold animate__animated animate__headShake">
+                    * Mensaje requerido
+                  </span>
+                }
+             </div>
+             
+             <button 
+               [disabled]="contactForm.invalid"
+               class="mt-4 h-12 w-full sm:w-auto self-end bg-blue-600 hover:bg-blue-700 active:scale-95 disabled:opacity-50 disabled:grayscale disabled:cursor-not-allowed text-white rounded-lg font-bold text-sm flex items-center justify-center gap-2 px-8 transition-all shadow-md" 
+               type="submit">
+                <span class="material-symbols-outlined text-[20px]">send_and_archive</span> 
+                {{ contactForm.invalid ? 'Completa el formulario' : 'Enviar por WhatsApp' }}
+             </button>
+
+             <!-- Feedback de Éxito Persistente -->
+             @if (enviado) {
+               <div class="flex items-center justify-center mt-4 gap-2 animate__animated animate__pulse bg-green-50 dark:bg-green-900/20 p-3 rounded-xl border border-green-200 dark:border-green-900/30">
+                 <span class="material-symbols-outlined text-green-600 dark:text-green-400 text-xl">verified</span>
+                 <p class="text-green-700 dark:text-green-400 text-sm font-semibold">¡Solicitud procesada! Revisa tu WhatsApp.</p>
+               </div>
+             }
+          </form>
+        </div>
+
+        <!-- Recent Messages & Extra Info (Bento Right) -->
+        <div class="lg:col-span-5 flex flex-col gap-md">
+          
+          <!-- Office Hours / Ideas Section (NEW) -->
+          <div class="bg-blue-600 dark:bg-blue-800 rounded-xl shadow-sm p-md text-white">
+            <h2 class="text-lg font-bold flex items-center gap-2 mb-2">
+              <span class="material-symbols-outlined">schedule</span> Disponibilidad
+            </h2>
+            <p class="text-sm opacity-90 mb-4">Disponible para consultoría y desarrollo de software de lunes a viernes.</p>
+            <div class="space-y-2">
+              <div class="flex justify-between text-xs font-bold">
+                <span>Lun - Vie</span>
+                <span>08:00 AM - 06:00 PM</span>
+              </div>
+              <div class="flex justify-between text-xs opacity-60">
+                <span>Sáb - Dom</span>
+                <span>Solo emergencias</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Historial Local -->
+          <div class="bg-white dark:bg-slate-900 rounded-xl shadow-sm border border-slate-100 dark:border-slate-800 p-md flex flex-col gap-4">
+            <div>
+              <h2 class="text-lg font-bold text-slate-900 dark:text-white flex items-center gap-2">
+                <span class="material-symbols-outlined text-orange-500">history</span> Historial Local
+              </h2>
+              <p class="text-xs text-slate-500 dark:text-slate-400">Mensajes enviados en esta sesión.</p>
+            </div>
+
+                <div class="space-y-3 max-h-[250px] overflow-y-auto pr-2 custom-scrollbar">
+                  @for (msg of mensajesHistorial; track $index) {
+                    <div class="p-3 rounded-lg bg-slate-50 dark:bg-slate-800/40 border border-slate-100 dark:border-slate-800 animate__animated animate__fadeIn group/item">
+                      <div class="flex justify-between items-start mb-1">
+                        <div class="flex flex-col">
+                          <span class="text-xs font-bold text-blue-600 dark:text-blue-400">{{ msg.nombre }}</span>
+                          <span class="text-[10px] text-slate-400">{{ msg.fecha | date:'HH:mm' }}</span>
+                        </div>
+                        <button (click)="eliminarMensaje($index)" class="text-slate-300 hover:text-red-500 opacity-0 group-hover/item:opacity-100 transition-all">
+                          <span class="material-symbols-outlined text-[18px]">delete</span>
+                        </button>
+                      </div>
+                      <p class="text-xs text-slate-600 dark:text-slate-300 italic">"{{ msg.mensaje }}"</p>
+                    </div>
+                  } @empty {
+                <div class="py-10 text-center flex flex-col items-center gap-2 opacity-40">
+                  <span class="material-symbols-outlined text-4xl">inventory_2</span>
+                  <p class="text-xs font-medium">No hay mensajes recientes</p>
+                </div>
+              }
+            </div>
+          </div>
+
+          <!-- Alternative Channels -->
+          <div class="bg-slate-50 dark:bg-slate-900/50 rounded-xl border border-slate-200/50 dark:border-slate-800 p-4 flex justify-around">
+            <a href="https://github.com/ragnarsson03" target="_blank" class="text-slate-400 hover:text-blue-500 transition-colors no-underline"><span class="material-symbols-outlined">code</span></a>
+            <a href="mailto:samirduran1000@gmail.com" class="text-slate-400 hover:text-red-500 transition-colors no-underline"><span class="material-symbols-outlined">mail</span></a>
+            <a href="#" class="text-slate-400 hover:text-blue-600 transition-colors no-underline"><span class="material-symbols-outlined">share</span></a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </main>
+</ion-content>
