@@ -21,8 +21,11 @@ import { CommonModule } from '@angular/common';
           <div class="relative w-full h-48 md:h-64 mb-20">
             <!-- Capa con overflow oculto para el video -->
             <div class="absolute inset-0 w-full h-full rounded-xl overflow-hidden shadow-sm border border-slate-100 dark:border-slate-800 bg-slate-900">
-              <video class="w-full h-full object-cover opacity-60 mix-blend-screen transition-all" autoplay loop muted playsinline>
-                <source src="assets/code/code.mp4" type="video/mp4" />
+              <video class="w-full h-full object-cover opacity-60 mix-blend-screen transition-all" 
+                autoplay loop muted playsinline preload="auto" 
+                poster="assets/code-poster.png">
+                <source src="assets/code/code.webm" type="video/webm" />
+                <source src="assets/code/code-small.mp4" type="video/mp4" />
               </video>
               <div class="absolute inset-0 bg-gradient-to-t from-slate-900/40 to-transparent z-10"></div>
             </div>
